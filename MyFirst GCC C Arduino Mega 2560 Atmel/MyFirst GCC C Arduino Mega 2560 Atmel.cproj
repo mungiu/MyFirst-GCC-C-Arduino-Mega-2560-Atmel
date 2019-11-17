@@ -152,9 +152,996 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\RN2483 LoRa\lora-click-schematic-v104.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\RN2483 LoRa\RN2483 LoRa Technology Module Command Reference User%27s Guide.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\RN2483 LoRa\RN2483 LoRa Technology Transceiver Module Data Sheet.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\HC-SR501 PIR\PIR HC-SR501.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\HIH8000 Temp and RH Sensor\Honeywell Humidity-Temperature HIH8000 1927621.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\HIH8000 Temp and RH Sensor\I2C Comms HumidIcon TN_009061-2-EN_Final_07Jun12.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\MH-Z19 CO2\MH-Z19 CO2 Ver1.0.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\TSL2591 Light Sensor\Manual adafruit-tsl2591.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\TSL2591 Light Sensor\sensors_schematic.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\TSL2591 Light Sensor\TSL25911_Datasheet_EN_v1.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\IoT Sensor Board\Sensor connection board.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\IoT Sensor Board\Sensor connection Schematic.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Mikro Click Host Board\Mikro Click Host Board Schematic.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\Mikro Click Host Board\Mikro Click Host Board.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\VIA MEGA2560 Shield\MCU-Pin Usage.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\VIA MEGA2560 Shield\VIA Shield 2.0.0 Board.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\HW Doc\VIA MEGA2560 Shield\VIA Shield 2.0.0 Schematic.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\Loriot\Downlink.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\Loriot\Gateway.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\Loriot\Overview.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\documentation\Loriot\Uplink.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\driver_library\Iot driver Library.7z">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\driver_library\Loriot Output Data Format.7z">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\example\WebsocketClient.java">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\megashielddoc\Documentation.7z">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\resources\Host Board Jumper.jpg">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\resources\IoT-Hardware.jpg">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\resources\logo.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_10.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_10.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_11.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_11.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_12.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_12.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_13.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_13.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_14.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_14.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_e.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_e.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_f.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\all_f.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\classes_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\close.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_e.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\defines_e.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enums_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\enumvalues_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\files_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\functions_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_e.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\groups_e.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\mag_sel.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\nomatches.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\pages_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\search.css">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\search.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\searchdata.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\search_l.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\search_m.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\search_r.png">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\typedefs_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_0.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_0.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_1.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_1.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_2.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_2.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_3.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_3.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_4.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_4.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_5.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_5.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_6.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_6.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_7.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_7.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_8.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_8.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_9.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_9.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_a.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_a.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_b.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_b.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_c.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_c.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_d.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_d.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_e.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_e.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_f.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\docs\search\variables_f.js">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_Semester_project-master\libIotLibrary.a">
+      <SubType>compile</SubType>
+    </None>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="IoT_Semester_project-master\display_7seg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\docs\example\loraWANHandler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\fifo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\FreeRTOSTraceDriver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\hal_defs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\hcSr501.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\hih8120.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\ihal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\iled.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\i_register_access.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\lora_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\lora_driver_utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\mh_z19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\rcServo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\serial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\spi_iha.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\stdio_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\tsl2591.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_Semester_project-master\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -262,6 +1249,28 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="IoT_Semester_project-master\" />
+    <Folder Include="IoT_Semester_project-master\docs\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\RN2483 LoRa\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\HC-SR501 PIR\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\HIH8000 Temp and RH Sensor\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\MH-Z19 CO2\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Datasheets\Sensors\TSL2591 Light Sensor\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\IoT Sensor Board\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\Mikro Click Host Board\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\HW Doc\VIA MEGA2560 Shield\" />
+    <Folder Include="IoT_Semester_project-master\docs\documentation\Loriot\" />
+    <Folder Include="IoT_Semester_project-master\docs\driver_library\" />
+    <Folder Include="IoT_Semester_project-master\docs\example\" />
+    <Folder Include="IoT_Semester_project-master\docs\megashielddoc\" />
+    <Folder Include="IoT_Semester_project-master\docs\resources\" />
+    <Folder Include="IoT_Semester_project-master\docs\search\" />
+    <Folder Include="Model Files" />
+    <Folder Include="Controller Files" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\Example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\" />
