@@ -130,6 +130,7 @@
     <ListValues>
       <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.209\include</Value>
       <Value>../VIA_FreeRTOS_AVRMEGA-master/src</Value>
+      <Value>../IoT_SEP4</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -152,9 +153,90 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="IoT_SEP4\.gitignore">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\DATASHEETS.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\example\WebsocketClient.java">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\HARDWARE-DOC.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\libIotLibrary.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\LICENSE.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\LORA_NETWORK_SERVER.md">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IoT_SEP4\README.md">
+      <SubType>compile</SubType>
+    </None>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="IoT_SEP4\display_7seg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\example\loraWANHandler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\fifo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\FreeRTOSTraceDriver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\hal_defs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\hcSr501.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\hih8120.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\ihal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\iled.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\i_register_access.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\lora_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\lora_driver_utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\mh_z19.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\rcServo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\serial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\spi_iha.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\stdio_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\tsl2591.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IoT_SEP4\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -262,6 +344,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="IoT_SEP4\" />
+    <Folder Include="IoT_SEP4\example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\Example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\" />
