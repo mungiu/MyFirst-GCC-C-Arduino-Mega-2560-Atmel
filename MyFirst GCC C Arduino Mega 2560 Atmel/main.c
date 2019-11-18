@@ -6,6 +6,7 @@
  */ 
 
 #include <avr/io.h>
+#invlude "LoRaWAN.c"
 
 
 int main(void)
