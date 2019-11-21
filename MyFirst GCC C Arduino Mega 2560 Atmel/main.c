@@ -6,14 +6,21 @@
  */ 
 
 #include <avr/io.h>
-#invlude "LoRaWAN.c"
+#include "LoRaWAN.c"
 
+#define TASK_LoRaWAN_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
 
 int main(void)
 {
-    /* Replace with your application code */
+	lora_handler_create(TASK_LoRaWAN_TASK_PRIORITY);
+	_lora_setup(void);
+	
     while (1) 
     {
+		// Application code goes in here
     }
+	
+	// Let the operating system take over :)
+	vTaskStartScheduler();
 }
 
