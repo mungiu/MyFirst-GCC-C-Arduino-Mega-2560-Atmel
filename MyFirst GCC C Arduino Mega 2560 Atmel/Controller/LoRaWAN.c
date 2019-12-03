@@ -1,9 +1,10 @@
 /*
- * LoRaWAN.c
+ * loraWAN.c
  *
- * Created: 11/18/2019 6:52:02 PM
+ * Created: 12/2/2019 9:40:49 PM
  *  Author: andre
  */ 
+
 #include <stddef.h>
 #include <stdio.h>
 
@@ -13,8 +14,8 @@
 #include <iled.h>
 
 // Parameters for OTAA join - You have got these in a mail from IHA
-#define LORA_appEUI "XXXXXXXXXXXXXXX"
-#define LORA_appKEY "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+#define LORA_appEUI "E81068FC10812076"
+#define LORA_appKEY "3894B87078D8A38B56E419ABCA16043E"
 
 static char _out_buf[100];
 
