@@ -27,7 +27,11 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
+		// Application code goes in here
     }
+	
+	// Let the operating system take over :)
+	vTaskStartScheduler();
 }
 
 

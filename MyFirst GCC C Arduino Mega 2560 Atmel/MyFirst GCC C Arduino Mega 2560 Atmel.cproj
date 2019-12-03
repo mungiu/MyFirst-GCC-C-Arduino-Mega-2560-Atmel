@@ -371,6 +371,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controller\" />
     <Folder Include="IoT_SEP4\" />
     <Folder Include="IoT_SEP4\example\" />
     <Folder Include="Model" />
