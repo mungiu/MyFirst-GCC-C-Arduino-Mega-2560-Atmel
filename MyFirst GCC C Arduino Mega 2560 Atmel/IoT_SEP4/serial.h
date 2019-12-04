@@ -6,7 +6,7 @@
 @{
 @brief A driver for using the USARTs for serial communication.
 
-@note Only implemented for 8,N,1 Data format!!!!
+@note Only implemented for 8,N,1 Data format!
 
 @}
 */
