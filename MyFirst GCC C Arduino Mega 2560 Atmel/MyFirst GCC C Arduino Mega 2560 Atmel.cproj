@@ -225,6 +225,15 @@
     <Compile Include="Controller\TempHumSensor.h">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="IndividualSensor\Co2Sensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\LightSensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\TempHumSensor.c">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="IoT_SEP4\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>
@@ -418,6 +427,7 @@
     <Folder Include="IoT_SEP4\example\" />
     <Folder Include="Model" />
     <Folder Include="Controller" />
+    <Folder Include="IndividualSensor" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\Example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\" />
