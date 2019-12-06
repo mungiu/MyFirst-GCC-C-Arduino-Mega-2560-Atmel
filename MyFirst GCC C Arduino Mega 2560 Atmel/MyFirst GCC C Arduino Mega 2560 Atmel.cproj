@@ -198,12 +198,12 @@
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
-    <None Include="Controller\Co2Sensor.c">
+    <Compile Include="Controller\Co2Sensor.c">
       <SubType>compile</SubType>
-    </None>
-    <None Include="Controller\LightSensor.c">
+    </Compile>
+    <Compile Include="Controller\LightSensor.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="Controller\loraWAN.c">
       <SubType>compile</SubType>
     </None>
@@ -213,9 +213,18 @@
     <None Include="Controller\SemaphoreController.c">
       <SubType>compile</SubType>
     </None>
-    <None Include="Controller\TempHumSensor.c">
+    <Compile Include="Controller\TempHumSensor.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
+    <Compile Include="Controller\Co2Sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Controller\LightSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Controller\TempHumSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="IoT_SEP4\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>
@@ -291,9 +300,9 @@
     <Compile Include="Model\TempHumData.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SensorTask.c">
+    <None Include="SensorTask.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>

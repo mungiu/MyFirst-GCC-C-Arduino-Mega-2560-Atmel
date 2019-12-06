@@ -22,8 +22,11 @@
 /*---*/
 
 #include "task.h"
-#include "SensorTask.h"
+
 #include "LorawanTask.h"
+#include "Controller/Co2Sensor.h"
+#include "Controller/LightSensor.h"
+#include "Controller/Co2Sensor.h"
 
 /* Priorities at which the tasks are created. */
 #define TASK_MY_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
