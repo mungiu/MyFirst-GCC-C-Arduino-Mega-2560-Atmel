@@ -41,7 +41,7 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800026120</avrtoolserialnumber>
+    <avrtoolserialnumber>J41800045838</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -71,15 +71,15 @@
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>1300000</JtagDbgClock>
+          <JtagDbgClock>1027615</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
-      <ToolNumber>J41800026120</ToolNumber>
+      <ToolNumber>J41800045838</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterfaceclock>1300000</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1027615</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -198,24 +198,24 @@
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Controller\Co2Sensor.c">
+    <None Include="Controller\Co2Sensor.c">
       <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Controller\LightSensor.c">
+    </None>
+    <None Include="Controller\LightSensor.c">
       <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Controller\loraWAN.c">
+    </None>
+    <None Include="Controller\loraWAN.c">
       <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Controller\loraWAN.h">
+    </None>
+    <None Include="Controller\loraWAN.h">
       <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Controller\SemaphoreController.c">
+    </None>
+    <None Include="Controller\SemaphoreController.c">
       <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Controller\TempHumSensor.c">
+    </None>
+    <None Include="Controller\TempHumSensor.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="IoT_SEP4\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>
@@ -273,6 +273,12 @@
     <Compile Include="IoT_SEP4\twi.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="LorawanTask.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LorawanTask.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Model\Co2Data.c">
       <SubType>compile</SubType>
     </Compile>
@@ -283,6 +289,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Model\TempHumData.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SensorTask.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
