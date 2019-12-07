@@ -21,14 +21,15 @@
 /* Task stack sizes*/
 #define TASK_MY_TASK_STACK				( configMINIMAL_STACK_SIZE )
 
-EventGroupHandle_t createEventGroup(){
-	/* Declare a variable to hold the created event group. */
-	EventGroupHandle_t xCreatedEventGroup;
+/* Declare a variable to hold the created event group. */
+EventGroupHandle_t xCreatedEventGroup = NULL;
+
+void createEventGroup(EventGroupHandle_t self){
     /* Attempt to create the event group. */
-	xCreatedEventGroup = xEventGroupCreate();
+	self = xEventGroupCreate();
 
     /* Was the event group created successfully? */
-    if( xCreatedEventGroup == NULL )
+    if( self == NULL )
     {
         printf("The event group was not created because there was insufficient FreeRTOS heap available.");
     }
@@ -43,7 +44,8 @@ int main(void)
 	stdioCreate(ser_USART0); // sets up drivers in library to printf
 	hal_create(LED_TASK_PRIORITY); // Must be called first! LED_TASK_PRIORITY must be a high priority in your system
 	lora_driver_create(ser_USART1); // The parameter is the USART port the RN2483 module is connected to - in this case USART1 (AKA COM PORT?)
-	lora_handler_create(LORAWAN_TASK_PRIORITY, createEventGroup());
+	createEventGroup(xCreatedEventGroup);// creating the event group
+	lora_handler_create(LORAWAN_TASK_PRIORITY, xCreatedEventGroup);
 
 	// Let the operating system take over :)
 	vTaskStartScheduler();

@@ -116,7 +116,7 @@ void lora_handler_task( void* pvParameters )
 		/* Wait a maximum of 100ms for either bit 0 or bit 4 to be set within
 		the event group.  Clear the bits before exiting. */
 		uxBits = xEventGroupWaitBits(
-		xEventGroup,			/* The event group being tested. */
+		temp,			/* The event group being tested. */
 		BIT_0 & BIT_1 & BIT_2,	/* The bits within the event group to wait for. */
 		pdTRUE,					/* BIT_0 & BIT_4 should be cleared before returning. */
 		pdFALSE,				/* Don't wait for both bits, either bit will do. */
