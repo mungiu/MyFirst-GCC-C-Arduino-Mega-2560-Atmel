@@ -7,6 +7,7 @@
 
 #include <ATMEGA_FreeRTOS.h>
 #include <semphr.h>
+#include <event_groups.h>
 
 #include <FreeRTOSTraceDriver.h>
 /*#include "FreeRTOS/FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"*/
@@ -50,19 +51,24 @@ TaskHandle_t _taskForthHandle = NULL;
 TaskHandle_t _taskFifthHandle = NULL;
 
 /*Semaphores*/
-SemaphoreHandle_t co2xSemaphore;
+/*SemaphoreHandle_t co2xSemaphore;
 SemaphoreHandle_t lightxSemaphore;
 SemaphoreHandle_t temperatureHumidityxSemaphore;
-SemaphoreHandle_t xSemaphore;
+SemaphoreHandle_t xSemaphore;*/
 
 //need separate result semaphore for sensors not to take semaphores back because controller can only take and wait for one semaphore at a time
 //In example. If one sensor task is finished much bore another, then it would have to wait long enough for the other task to finish or the other task semaphore to timeout for the controller task to request and collect the semaphore of the finished waiting before being taken back again by the finished waiting task. better for maintainability to use separate tasks.
 //insures that the semaphore was taken by distinguishing between direction of communication. Doesn't mistake a semaphore not being taken as that reply is already present
 //No not  to wait for the receiver to take the semaphore or for the receiver to be higher priority to immediate take it.
-SemaphoreHandle_t co2Result;
+/*SemaphoreHandle_t co2Result;
 SemaphoreHandle_t lightResult;
 SemaphoreHandle_t temperatureHumidityResult;
-SemaphoreHandle_t xSemaphoreResult;
+SemaphoreHandle_t xSemaphoreResult;*/
+
+//creates an eventgroup. Basically a set of semaphores or flags. Holds a set of bits. Each bit is a flag.
+//Allays you to wait for multiple flags to be set simultaneously.
+//replaces the use of semaphones. We still use seperate semaphores for each communication direction. To avaid having to wait for others task to take a semaphore before taking it back.
+EventGroupHandle_t contrlEvtGrp;
 
 TickType_t xTimeOnEntering;
 
@@ -84,26 +90,30 @@ void taskMyTask(void* pvParameters)
 			xTimeOnEntering = xTaskGetTickCount(); /*I try to declarate and initialize variable xTimeOnEntering same as semaphores before and outside of (taskMyTask()) but no effect. It worked in visual studio 2019 FreeRTOS template*/
 
 			//give semaphores
-			xSemaphoreGive(co2xSemaphore);
+			/*xSemaphoreGive(co2xSemaphore);
 			xSemaphoreGive(lightxSemaphore);
-			xSemaphoreGive(temperatureHumidityxSemaphore);
+			xSemaphoreGive(temperatureHumidityxSemaphore);*/
+			xEventGroupSetBits(contrlEvtGrp, 0b00000111);
 
 			puts("Controller gave sensor signal semaphores");
 			
 			TickType_t maxDelaySensor = portMAX_DELAY/*pdMS_TO_TICKS(3000)*/;
 			//wait to take semaphores back when available
-			xSemaphoreTake(co2Result, maxDelaySensor);
+			/*xSemaphoreTake(co2Result, maxDelaySensor);
 			xSemaphoreTake(lightResult, maxDelaySensor);
-			xSemaphoreTake(temperatureHumidityResult, maxDelaySensor);
+			xSemaphoreTake(temperatureHumidityResult, maxDelaySensor);*/
+			xEventGroupWaitBits(contrlEvtGrp, 0b01110000, /*clear bits after wait*/pdTRUE, /*wait for all bits AND logic not OR*/pdTRUE, maxDelaySensor);
 
 			puts("Controller took sensor result semaphores");
 
 			//give semaphores
-			xSemaphoreGive(xSemaphore);
+			/*xSemaphoreGive(xSemaphore);*/
+			xEventGroupSetBits(contrlEvtGrp, 0b00001000);
 			puts("Controller gave Lorawan signal semaphore");
 
 			TickType_t maxDelayLorawan = portMAX_DELAY/*pdMS_TO_TICKS(1500)*/;
-			xSemaphoreTake(xSemaphoreResult, maxDelayLorawan);
+			/*xSemaphoreTake(xSemaphoreResult, maxDelayLorawan);*/
+			xEventGroupWaitBits(contrlEvtGrp, 0b10000000, pdTRUE, pdTRUE, maxDelayLorawan);
 
 			puts("Controller took Lorawan result semaphore");
 			puts("Controller took all the result semaphores");
@@ -128,11 +138,13 @@ void taskMySeccondTask(void* pvParameters)
 
 	for (;;)
 	{
-		SemaphoreHandle_t localSemaphore = co2xSemaphore;
-		xSemaphoreTake(localSemaphore, portMAX_DELAY);
+		/*SemaphoreHandle_t localSemaphore = co2xSemaphore;
+		xSemaphoreTake(localSemaphore, portMAX_DELAY);*/
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000001, pdTRUE, pdTRUE, portMAX_DELAY);
 		vTaskDelay(pdMS_TO_TICKS(35000));
 		getCo2SensorMeasurement();
-		xSemaphoreGive(co2Result);
+		/*xSemaphoreGive(co2Result);*/
+		xEventGroupSetBits(contrlEvtGrp, 0b00010000);
 	}
 }
 
@@ -144,11 +156,13 @@ void taskMyThirdTask(void* pvParameters)
 
 	for (;;)
 	{
-		SemaphoreHandle_t localSemaphore = lightxSemaphore;
-		xSemaphoreTake(localSemaphore, portMAX_DELAY);
+		/*SemaphoreHandle_t localSemaphore = lightxSemaphore;
+		xSemaphoreTake(localSemaphore, portMAX_DELAY);*/
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000010, pdTRUE, pdTRUE, portMAX_DELAY);
 		vTaskDelay(pdMS_TO_TICKS(25000));
 		getLightSensorMeasurement();
-		xSemaphoreGive(lightResult);
+		/*xSemaphoreGive(lightResult);*/
+		xEventGroupSetBits(contrlEvtGrp, 0b00100000);
 	}
 }
 
@@ -160,11 +174,13 @@ void taskMyForthTask(void* pvParameters)
 
 	for (;;)
 	{
-		SemaphoreHandle_t localSemaphore = temperatureHumidityxSemaphore;
-		xSemaphoreTake(localSemaphore, portMAX_DELAY);
+		/*SemaphoreHandle_t localSemaphore = temperatureHumidityxSemaphore;
+		xSemaphoreTake(localSemaphore, portMAX_DELAY);*/
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000100, pdTRUE, pdTRUE, portMAX_DELAY);
 		vTaskDelay(pdMS_TO_TICKS(40000));
 		getTemperatureHumiditySensorMeasurement();
-		xSemaphoreGive(temperatureHumidityResult);
+		/*xSemaphoreGive(temperatureHumidityResult);*/
+		xEventGroupSetBits(contrlEvtGrp, 0b01000000);
 	}
 }
 
@@ -175,11 +191,13 @@ void taskMyFifthTask(void* pvParameters)
 
 	for (;;)
 	{
-		SemaphoreHandle_t localSemaphore = xSemaphore;
-		xSemaphoreTake(localSemaphore, portMAX_DELAY);
+		/*SemaphoreHandle_t localSemaphore = xSemaphore;
+		xSemaphoreTake(localSemaphore, portMAX_DELAY);*/
+		xEventGroupWaitBits(contrlEvtGrp, 0b00001000, pdTRUE, pdTRUE, portMAX_DELAY);
 		vTaskDelay(pdMS_TO_TICKS(100000));
 		sendDataPackageToLorawan();
-		xSemaphoreGive(xSemaphoreResult);
+		/*xSemaphoreGive(xSemaphoreResult);*/
+		xEventGroupSetBits(contrlEvtGrp, 0b10000000);
 	}
 }
 
@@ -196,8 +214,11 @@ void main(void)
 		/*If i initialize the semaphores inside of the controller task (taskMyTask()) then they will not work. Even though that they are declared before at the top of the .c file or module */
 		puts("before create semaphores");
 		
+		//Initialize controller eventgroup
+		contrlEvtGrp = xEventGroupCreate();
+		
 		/* Attempt to create semaphores */
-
+		/*
 		//Sensor
 		co2xSemaphore = xSemaphoreCreateBinary();
 		lightxSemaphore = xSemaphoreCreateBinary();
@@ -217,7 +238,7 @@ void main(void)
 		{
 			puts(" There was insufficient FreeRTOS heap available for the semaphore to be created successfully.");
 		}
-		
+		*/
 		/*Initialize timer counter*/
 		/*I try to declarate and initialize variable xTimeOnEntering same as semaphores before and outside of (taskMyTask()) but no effect. It worked in visual studio 2019 FreeRTOS template*/
 		xTimeOnEntering = xTaskGetTickCount();
