@@ -103,3 +103,20 @@ int main(void)
 	}
 }
 
+#include <stdio.h>
+#include <header/structs_dec.h>
+
+int main() {
+	mh_z19_create(ser_USART3, my_co2_call_back);
+}
+
+uint16_t ppm;
+mh_z19_return_code_t rc;
+void my_co2_call_back(uint16_t ppm)
+{
+	// Here you can use the CO2 ppm value
+
+}
+if (rc != OK) {
+
+}

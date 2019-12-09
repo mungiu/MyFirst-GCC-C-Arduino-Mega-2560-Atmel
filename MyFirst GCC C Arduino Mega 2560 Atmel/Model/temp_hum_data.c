@@ -1,0 +1,14 @@
+
+#include <stdio.h>
+#include "Header Files/temp_hum_data.h"
+typedef struct temp_hum_data_t* ptemp_hum_data;
+ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value bool corrupt_data);
+void set_is_corrupt_data_th(ptemp_hum_data temp_data_value, bool bool_corrupt_data);
+bool get_if_corrupt_data_th(ptemp_hum_data bool_curropt_data);
+
+void set_hum_data(ptemp_hum_data hum_data, uint16_t hum_data_value);
+uint16_t get_hum_data(ptemp_hum_data hum_data_value);
+
+void set_temp_data(ptemp_hum_data temp_data, uint16_t temp_data_value);
+uint16_t get_temp_data(ptemp_hum_data temp_data_value);
+void print_temp_hum_data(ptemp_hum_data temp_hum_data_t);
