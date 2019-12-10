@@ -209,9 +209,6 @@
     <None Include="Controller\loraWAN.h">
       <SubType>compile</SubType>
     </None>
-    <None Include="Controller\SemaphoreController.c">
-      <SubType>compile</SubType>
-    </None>
     <Compile Include="Controller\TempHumSensor.c">
       <SubType>compile</SubType>
     </Compile>
