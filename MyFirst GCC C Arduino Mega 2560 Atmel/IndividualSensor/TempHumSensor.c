@@ -101,7 +101,7 @@ int main(void)
 		
 		//print results
 		//something is wrong with the formatter when using floating print format ex. %5.4f. Even when using syntax from the Internet or Ib s example. Using hex format to verify sensor response.
-		printf("\nHumidity: %08X\nTemperature: %08X\n", humidity, temperature);
+		printf("\nHumidity: %08d\nTemperature: %08d\n", humidity, temperature);
 		
 		}
 		

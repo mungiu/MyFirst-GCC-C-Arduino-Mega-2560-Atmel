@@ -5,8 +5,6 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-#include <tsl2591.h>
-
 #include <avr/io.h>
 #include <avr/sfr_defs.h>
 
@@ -14,6 +12,11 @@
 #include <semphr.h>
 
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
+
+//---
+
+//light sensor
+#include <tsl2591.h>
 
 //Functions and variables must be declared before use for this C compiler to see them
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
@@ -99,7 +102,7 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 		if ( TSL2591_OK == (rc = tsl2591GetLux(&_lux)) )
 		{
 			//something is wrong with the formatter when using floating print format ex. %5.4f. Even when using syntax from the Internet or Ib s example. Using hex format to verify sensor response.
-			printf("Lux: %04X\n", _lux);
+			printf("Lux: %08d\n", _lux);
 			//printf("Lux: %5.4f\n", _lux);
 		}
 		else if( TSL2591_OVERFLOW == rc )

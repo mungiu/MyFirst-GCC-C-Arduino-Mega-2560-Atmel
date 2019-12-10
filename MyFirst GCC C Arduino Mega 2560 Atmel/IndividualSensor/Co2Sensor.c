@@ -5,29 +5,28 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-#include <tsl2591.h>
 
 #include <avr/io.h>
 #include <avr/sfr_defs.h>
-
-#include <ATMEGA_FreeRTOS.h>
-#include <semphr.h>
-
-#include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
 //---
 
 //co2 sensor
 #include <mh_z19.h>
 
-uint16_t ppmReturn;
+uint16_t ppmReturn = 0;
 mh_z19_return_code_t rc;
 
-void my_co2_call_back(uint16_t ppm);
+void my_co2_call_back(uint16_t ppm)
+{
+	// Here you can use the CO2 ppm value
+	//printf("\nCo2 ppm value: %08X\n", ppm);
+	//save co2 ppm value
+	ppmReturn=ppm;
+}
 
 int main(void)
 {
-	ppmReturn=22;
 	//initialize driver
 	stdioCreate(0);
 	puts("Program Started!");
@@ -43,40 +42,23 @@ int main(void)
 	for(;;)
 	{
 		/*Callback function is never called as specified in documentation*/
-		_delay_ms(500);
+		//_delay_ms(500);
 		rc = mh_z19_take_meassuring();
 		if (rc != MHZ19_OK)
 		{
 			// Something went wrong
 			puts("Something went wrong take_meassuring()");
 		}
-		else
-		{
-			printf("\nCo2 ppm value returned: %08X\n", ppmReturn);
-		}
 		
 		/*Not in documentation put does not work either*/
 		_delay_ms(500);
-		rc = mh_z19_get_co2_ppm(ppmReturn);
-		if (rc != MHZ19_OK)
-		{
-			// Something went wrong
-			puts("Something went wrong mh_z19_get_co2_ppm()");
-		}
-		else
-		{
-			printf("\nCo2 ppm value returned: %08X\n", ppmReturn);
-		}
+
+			printf("\nCo2 ppm value returned: %08d\n", ppmReturn);
+		
 	}
 	
 }
 
-void my_co2_call_back(uint16_t ppm)
-{
-	// Here you can use the CO2 ppm value
-	printf("\nCo2 ppm value: %08X\n", ppm);
-	//save co2 ppm value
-	ppmReturn=ppm;
-}
+
 
 

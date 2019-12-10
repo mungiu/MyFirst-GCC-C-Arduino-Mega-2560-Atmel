@@ -10,6 +10,7 @@
 #define CO2SENSOR_H_
 
 void getCo2SensorMeasurement();
+void my_co2_call_back(uint16_t ppm);
 
 
 

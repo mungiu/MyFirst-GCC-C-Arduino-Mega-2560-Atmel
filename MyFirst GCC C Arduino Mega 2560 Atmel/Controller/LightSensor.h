@@ -10,6 +10,7 @@
 #define LIGHTSENSOR_H_
 
 void getLightSensorMeasurement();
+void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
 
 
 
