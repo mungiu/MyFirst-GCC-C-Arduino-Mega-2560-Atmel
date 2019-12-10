@@ -133,18 +133,6 @@ void lora_handler_task( void* pvParameters )
 
 			puts("Controller took sensor result semaphores");
 
-			//give semaphores
-			/*xSemaphoreGive(xSemaphore);*/
-			xEventGroupSetBits(contrlEvtGrp, 0b00001000);
-			puts("Controller gave Lorawan signal semaphore");
-
-			TickType_t maxDelayLorawan = /*portMAX_DELAY*/5000/portTICK_PERIOD_MS;
-			/*xSemaphoreTake(xSemaphoreResult, maxDelayLorawan);*/
-			xEventGroupWaitBits(contrlEvtGrp, 0b10000000, pdTRUE, pdTRUE, maxDelayLorawan);
-
-			puts("Controller took Lorawan result semaphore");
-			puts("Controller took all the result semaphores");
-
 			puts("Controller sleeps");
 
 			//Delay until next measurement

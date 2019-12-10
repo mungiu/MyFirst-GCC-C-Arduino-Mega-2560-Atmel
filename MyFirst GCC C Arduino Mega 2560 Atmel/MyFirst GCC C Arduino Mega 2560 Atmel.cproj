@@ -290,12 +290,6 @@
     <Compile Include="IoT_SEP4\twi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LorawanTask.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="LorawanTask.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Model\Co2Data.c">
       <SubType>compile</SubType>
     </Compile>

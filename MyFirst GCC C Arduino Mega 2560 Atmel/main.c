@@ -36,7 +36,6 @@
 #include "task.h"
 
 #include "Controller/loraWAN.h"
-#include "LorawanTask.h"
 #include "Controller/Co2Sensor.h"
 #include "Controller/LightSensor.h"
 #include "Controller/Co2Sensor.h"
@@ -47,19 +46,16 @@
 #define	TASK_MY_SECOND_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
 #define	TASK_MY_THIRD_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
 #define	TASK_MY_FORTH_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
-#define	TASK_MY_FIFTH_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
 
 /* Task stack sizes*/
 #define	TASK_MY_SECOND_TASK_STACK		( configMINIMAL_STACK_SIZE )
 #define	TASK_MY_THIRD_TASK_STACK		( configMINIMAL_STACK_SIZE )
 #define	TASK_MY_FORTH_TASK_STACK		( configMINIMAL_STACK_SIZE )
-#define	TASK_MY_FIFTH_TASK_STACK		( configMINIMAL_STACK_SIZE )
 
 /* Task Handles */
 TaskHandle_t _taskSecondHandle = NULL;
 TaskHandle_t _taskThirdHandle = NULL;
 TaskHandle_t _taskForthHandle = NULL;
-TaskHandle_t _taskFifthHandle = NULL;
 
 /*Semaphores*/
 //need separate result semaphore for sensors not to take semaphores back because controller can only take and wait for one semaphore at a time
@@ -129,23 +125,6 @@ void taskMyForthTask(void* pvParameters)
 		getTemperatureHumiditySensorMeasurement();
 		/*xSemaphoreGive(temperatureHumidityResult);*/
 		xEventGroupSetBits(contrlEvtGrp, 0b01000000);
-	}
-}
-
-void taskMyFifthTask(void* pvParameters)
-{
-	// Remove compiler warnings.
-	(void)pvParameters;
-
-	for (;;)
-	{
-		/*SemaphoreHandle_t localSemaphore = xSemaphore;
-		xSemaphoreTake(localSemaphore, portMAX_DELAY);*/
-		xEventGroupWaitBits(contrlEvtGrp, 0b00001000, pdTRUE, pdTRUE, portMAX_DELAY);
-		vTaskDelay(250/portTICK_PERIOD_MS);
-		sendDataPackageToLorawan();
-		/*xSemaphoreGive(xSemaphoreResult);*/
-		xEventGroupSetBits(contrlEvtGrp, 0b10000000);
 	}
 }
 
@@ -220,14 +199,6 @@ void main(void)
 		(void*)4,    /* Parameter passed into the task. */
 		TASK_MY_FORTH_TASK_PRIORITY,/* Priority at which the task is created. */
 		&_taskForthHandle);      /* Used to pass out the created task's handle. */
-
-	xTaskCreate(
-		taskMyFifthTask,       /* Function that implements the task. */
-		"MyFifthTask",          /* Text name for the task. */
-		TASK_MY_FIFTH_TASK_STACK,      /* Stack size in words, not bytes. */
-		(void*)5,    /* Parameter passed into the task. */
-		TASK_MY_FIFTH_TASK_PRIORITY,/* Priority at which the task is created. */
-		&_taskFifthHandle);      /* Used to pass out the created task's handle. */
 
 	// Let the operating system take over :)
 	vTaskStartScheduler();
