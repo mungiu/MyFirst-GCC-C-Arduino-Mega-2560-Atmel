@@ -21,11 +21,14 @@
 //Functions and variables must be declared before use for this C compiler to see them
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
 
-void getLightSensorMeasurement2() {
-	puts("Hi from light");}
-
-void getLightSensorMeasurement() {
-	puts("Hi from light");
+int main(void)
+{
+	//initialize driver
+	stdioCreate(0);
+	puts("Program Started!");
+	
+	//initialize light sensor driver
+	tsl2591Create/*driver*/(tsl2591Callback/*Function for the driver to call/utillize*/);
 	
 	//enable light sensor
 	if ( TSL2591_OK == tsl2591Enable() )
@@ -34,8 +37,16 @@ void getLightSensorMeasurement() {
 	}
 	
 	//---------
+	
+	//No interrupts allowed before this line. Use after finalizing initialization.
+	sei();
+	
+	//---------
+	
+    while (1) 
+    {
 		
-		_delay_ms(250);
+		_delay_ms(1000);
 		
 		/*Try sensor driver*/
 			if ( TSL2591_OK != tsl2591FetchData() )
@@ -48,8 +59,9 @@ void getLightSensorMeasurement() {
 				//The light data will be ready after the driver calls the call back function with TSL2591_DATA_READY.
 			}
 		
-};
-
+		
+    }
+}
 
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 {
@@ -62,16 +74,16 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 		case TSL2591_DATA_READY:
 		if ( TSL2591_OK == (rc = tsl2591GetFullSpectrumRaw(&_fullRaw)) )
 		{
-			printf("Full Raw:%08d\n", _fullRaw);
+			printf("\nFull Raw:%04X\n", _fullRaw);
 		}
 		else if( TSL2591_OVERFLOW == rc )
 		{
-			printf("Full spectrum overflow - change gain and integration time\n");
+			printf("\nFull spectrum overflow - change gain and integration time\n");
 		}
 
 		if ( TSL2591_OK == (rc = tsl2591GetVisibleRaw(&_visibleRaw)) )
 		{
-			printf("Visible Raw:%08d\n", _visibleRaw);
+			printf("Visible Raw:%04X\n", _visibleRaw);
 		}
 		else if( TSL2591_OVERFLOW == rc )
 		{
@@ -80,7 +92,7 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 
 		if ( TSL2591_OK == (rc = tsl2591GetInfraredRaw(&_infraredRaw)) )
 		{
-			printf("Infrared Raw:%08d\n", _infraredRaw);
+			printf("Infrared Raw:%04X\n", _infraredRaw);
 		}
 		else if( TSL2591_OVERFLOW == rc )
 		{
