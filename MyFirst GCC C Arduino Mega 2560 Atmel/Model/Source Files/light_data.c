@@ -1,7 +1,7 @@
 
 #pragma once
 #include <stdio.h>
-#include "Header Files/light_data.h"
+#include "..//Header Files/light_data.h"
 #include <malloc.h>
 
 

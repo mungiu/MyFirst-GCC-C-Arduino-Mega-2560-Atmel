@@ -96,3 +96,6 @@ void print_temp_hum_data(ptemp_hum_data temp_hum_data_t) {
     printf("TEMPERATURE SENSOR INPUT: %d \n HUMDITY SENSOR INPUT: %d", temp_hum_data_t->temp_data_value, temp_hum_data_t->hum_data_value);
 
 }
+void destroy_temp_hum_data(ptemp_hum_data temp_hum_data) {
+    free(temp_hum_data);
+}

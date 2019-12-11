@@ -20,3 +20,4 @@ uint16_t get_temp_data(ptemp_hum_data temp_data_value);
 void print_temp_hum_data(ptemp_hum_data temp_hum_data_t);
 
 void initialize_temp_hum_mutext();
+void destroy_temp_hum_data(ptemp_hum_data temp_hum_data);
