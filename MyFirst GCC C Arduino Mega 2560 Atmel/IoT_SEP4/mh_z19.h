@@ -102,7 +102,7 @@ mh_z19_return_code_t mh_z19_get_co2_ppm(uint16_t *ppm);
 \ingroup mh_z19_driver_advanced_function
 \brief Enable/disable auto calibration of the sensor.
 
-\note This must unly be used if the sensor is installed outdoor!!
+\note This must unly be used if the sensor is installed outdoor!
 
 \param[in] on true: Enable auto calibration, false: Disable auto calibration.
 
@@ -115,7 +115,7 @@ mh_z19_return_code_t mh_z19_set_auto_calibration(bool on);
 \ingroup mh_z19_driver_advanced_function
 \brief Zero calibration of the sensor.
 
-\note Don't use if you don't know what you are doing - Can destroy the module!!!!
+\note Don't use if you don't know what you are doing - Can destroy the module!
 
 \return Result of the call - see mh_z19_return_code_t.
 */
@@ -126,7 +126,7 @@ mh_z19_return_code_t mh_z19_calibrate_zero_point(void);
 \ingroup mh_z19_driver_advanced_function
 \brief Span calibration of the sensor.
 
-\note Don't use if you don't know what you are doing - Can destroy the module!!!!
+\note Don't use if you don't know what you are doing - Can destroy the module!
 
 \param[in] ppm the CO2 ppm to calibrate the sensor to.
 

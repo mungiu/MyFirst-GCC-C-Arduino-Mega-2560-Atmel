@@ -40,7 +40,7 @@ See \ref tsl2591_driver_quick_start.
 \defgroup tsl2591_driver_basic_function Basic TSL2591 driver functions
 \brief Commonly used functions.
 Here you you will find the functions you normally will need.
-\note Interrupt must be enabled with sei() before any of the functions in this section must be called!!
+\note Interrupt must be enabled with sei() before any of the functions in this section must be called!
 
 \defgroup tsl2591_driver_structs Configuration structs for the TSL2591 driver functions
 \brief Commonly used structs.
@@ -163,7 +163,7 @@ tsl2591ReturnCode_t tsl2591Destroy(void);
 \return tsl2591ReturnCode_t
 \retval TSL2591_OK The enable sensor/powered up command is send to the sensor.
 \retval TSL2591_BUSY The driver is busy.
-\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!!
+\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!
 */
 tsl2591ReturnCode_t tsl2591Enable(void);
 
@@ -177,7 +177,7 @@ tsl2591ReturnCode_t tsl2591Enable(void);
 \return tsl2591ReturnCode_t
 \retval TSL2591_OK The disable sensor/powered down command is send to the sensor.
 \retval TSL2591_BUSY The driver is busy.
-\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!!
+\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!
 */
 tsl2591ReturnCode_t tsl2591Disable(void);
 
@@ -191,7 +191,7 @@ tsl2591ReturnCode_t tsl2591Disable(void);
 \return tsl2591ReturnCode_t
 \retval TSL2591_OK The fetch command is send to the sensor. Await the callback before the ID is retrieved with \ref tsl2591GetDeviceId.
 \retval TSL2591_BUSY The driver is busy.
-\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!!
+\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!
 */
 tsl2591ReturnCode_t tsl2591FetchDeviceId(void);
 
@@ -242,7 +242,7 @@ The sensor's gain and integration time are set to TSL2591_GAIN_LOW (x1) and TSL2
 \return tsl2591ReturnCode_t
 \retval TSL2591_OK The set gain and integration time command is send to the sensor.
 \retval TSL2591_BUSY The driver is busy.
-\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!!
+\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!
 */
 tsl2591ReturnCode_t tsl2591SetGainAndIntegrationTime(tsl2591Gain_t gain, tsl2591IntegrationTime_t integrationTime);
 
@@ -274,7 +274,7 @@ tsl2591IntegrationTime_t tsl2591GetIntegrationTime(void);
 \return tsl2591ReturnCode_t
 \retval TSL2591_OK The fetch command is send to the sensor. Await the callback before the light data is retrieved with \ref tsl2591GetVisibleRaw, \ref tsl2591GetInfraredRaw, \ref tsl2591GetFullSpectrumRaw, \ref tsl2591GetCombinedDataRaw or \ref tsl2591GetLux.
 \retval TSL2591_BUSY The driver is busy.
-\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!!
+\retval TSL2591_DRIVER_NOT_CREATED The driver is not created - and can not be used!
 */
 tsl2591ReturnCode_t tsl2591FetchData(void);
 

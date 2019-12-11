@@ -40,8 +40,8 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
-    <avrtoolserialnumber />
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J41800045838</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -55,7 +55,7 @@
       </ToolNumber>
       <ToolName>Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
-    <avrtoolinterface />
+    <avrtoolinterface>JTAG</avrtoolinterface>
     <custom>
       <ToolOptions xmlns="">
         <InterfaceProperties>
@@ -68,6 +68,18 @@
       </ToolNumber>
       <ToolName xmlns="">Custom Programming Tool</ToolName>
     </custom>
+    <com_atmel_avrdbg_tool_atmelice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <JtagDbgClock>1027615</JtagDbgClock>
+        </InterfaceProperties>
+        <InterfaceName>JTAG</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
+      <ToolNumber>J41800045838</ToolNumber>
+      <ToolName>Atmel-ICE</ToolName>
+    </com_atmel_avrdbg_tool_atmelice>
+    <avrtoolinterfaceclock>1027615</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -133,7 +145,6 @@
             <Value>../IoT_SEP4</Value>
           </ListValues>
         </avrgcc.compiler.directories.IncludePaths>
-        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
         <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
         <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
         <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
@@ -141,8 +152,14 @@
         <avrgcc.linker.libraries.Libraries>
           <ListValues>
             <Value>libm</Value>
+            <Value>libIotLibrary</Value>
           </ListValues>
         </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../IoT_SEP4</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.LibrarySearchPaths>
         <avrgcc.assembler.general.IncludePaths>
           <ListValues>
             <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.209\include</Value>
@@ -186,21 +203,39 @@
     <Compile Include="Controller\LightSensor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Controller\LoRaWAN.c">
+    <Compile Include="Controller\loraWAN.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Controller\SemaphoreController.c">
+    <None Include="Controller\loraWAN.h">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="Controller\TempHumSensor.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Controller\Co2Sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Controller\LightSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Controller\TempHumSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="IndividualSensor\Co2Sensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\LightSensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\TempHumSensor.c">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="IoT_SEP4\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="IoT_SEP4\example\loraWANHandler.c">
+    <None Include="IoT_SEP4\example\loraWANHandler.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="IoT_SEP4\fifo.h">
       <SubType>compile</SubType>
     </Compile>
@@ -262,6 +297,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Model\TempHumData.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="SensorTask.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
@@ -374,7 +415,9 @@
     <Folder Include="Controller\" />
     <Folder Include="IoT_SEP4\" />
     <Folder Include="IoT_SEP4\example\" />
-    <Folder Include="Model\" />
+    <Folder Include="Model" />
+    <Folder Include="Controller" />
+    <Folder Include="IndividualSensor" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\Example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\" />

@@ -39,7 +39,7 @@ These functions you will not normally need, it will normally be enough to use th
 
 //#include <lorawan_config.h>
 
-#define LORA_MAX_PAYLOAD_LENGTH	20 /* bytes - Must newer be changed!!!*/
+#define LORA_MAX_PAYLOAD_LENGTH	20 /* bytes - Must newer be changed!*/
 
 /**
 \ingroup lora_config
@@ -582,12 +582,12 @@ The following must be added to the project:
 Add to application initialization:
 - Initialise the driver:
 \code
-hal_create(LED_TASK_PRIORITY); // Must be called first!! LED_TASK_PRIORITY must be a high priority in your system
+hal_create(LED_TASK_PRIORITY); // Must be called first! LED_TASK_PRIORITY must be a high priority in your system
 lora_driver_create(ser_USART1); // The parameter is the USART port the RN2483 module is connected to - in this case USART1
 \endcode
 
 Then the LoRaWAN transceiver needs to be hardware reset.
-\note This must be done from a FreeRTOS task!!
+\note This must be done from a FreeRTOS task!
 \code
 lora_driver_reset_rn2483(1); // Activate reset line
 vTaskDelay(2);

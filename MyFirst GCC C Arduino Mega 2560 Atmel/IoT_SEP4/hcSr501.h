@@ -100,7 +100,7 @@ hcSr501Inst = hcSr501Create(&PORTE, PE5);
 if ( NULL != hcSr501Inst )
 {
 	// Driver created OK
-	// If NULL is returned the driver is not created!!!
+	// If NULL is returned the driver is not created!
 }
 \endcode
 
