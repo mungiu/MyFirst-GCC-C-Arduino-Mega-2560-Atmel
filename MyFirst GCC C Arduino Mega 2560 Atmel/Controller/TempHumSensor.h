@@ -5,7 +5,6 @@
  *  Author: peJep
  */ 
 #include <stdio.h>
-#include "TempHumSensor.c"
 
 #ifndef TEMPHUMSENSOR_H_
 #define TEMPHUMSENSOR_H_
