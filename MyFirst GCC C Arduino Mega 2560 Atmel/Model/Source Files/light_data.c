@@ -72,7 +72,7 @@ uint16_t get_light_data(plight_data light_data)
 	uint16_t ldata = 0;
 	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
 	{
-		ldata = light_data->light_data_value
+		ldata = light_data->light_data_value;
 		xSemaphoreGive(lightSharedMutex);
 	}
 	return ldata;
