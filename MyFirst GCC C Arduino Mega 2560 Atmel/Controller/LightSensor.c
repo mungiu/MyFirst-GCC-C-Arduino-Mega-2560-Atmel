@@ -5,7 +5,6 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-#include <avr/io.h>
 #include <avr/sfr_defs.h>
 
 #include <ATMEGA_FreeRTOS.h>
@@ -22,7 +21,7 @@
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
 
 void getLightSensorMeasurement2() {
-	puts("Hi from light");}
+puts("Hi from light");}
 
 void getLightSensorMeasurement() {
 	puts("Hi from light");
@@ -30,24 +29,24 @@ void getLightSensorMeasurement() {
 	//enable light sensor
 	if ( TSL2591_OK == tsl2591Enable() )
 	{
-       // The power up command is now send to the sensor - it can be powered down with a call to tsl2591Disable()
+		// The power up command is now send to the sensor - it can be powered down with a call to tsl2591Disable()
 	}
 	
 	//---------
-		
-		_delay_ms(250);
-		
-		/*Try sensor driver*/
-			if ( TSL2591_OK != tsl2591FetchData() )
-			{
-				// Something went wrong
-				// Investigate the return code further
-			}
-			else
-			{
-				//The light data will be ready after the driver calls the call back function with TSL2591_DATA_READY.
-			}
-		
+	
+	_delay_ms(250);
+	
+	/*Try sensor driver*/
+	if ( TSL2591_OK != tsl2591FetchData() )
+	{
+		// Something went wrong
+		// Investigate the return code further
+	}
+	else
+	{
+		//The light data will be ready after the driver calls the call back function with TSL2591_DATA_READY.
+	}
+	
 };
 
 
@@ -106,7 +105,4 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 			//lightMeasurement = { _fullRaw, _visibleRaw, _infraredRaw, _lux };
 		}
 	}
-
 }
-
-

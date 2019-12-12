@@ -1,9 +1,9 @@
-#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <ATMEGA_FreeRTOS.h>
 #include <semphr.h>
 #include <portmacro.h>
+
 #include "..//Header Files/light_data.h"
 
 SemaphoreHandle_t lightSharedMutex;
