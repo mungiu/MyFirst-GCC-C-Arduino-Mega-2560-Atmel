@@ -193,6 +193,9 @@
     <None Include="IoT_SEP4\README.md">
       <SubType>compile</SubType>
     </None>
+    <None Include="main.c.old">
+      <SubType>compile</SubType>
+    </None>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
@@ -286,21 +289,36 @@
     <Compile Include="IoT_SEP4\twi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Model\Co2Data.c">
+    <Compile Include="Model\Header Files\co2_data.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Model\FinalBundleData.c">
+    <Compile Include="Model\Header Files\final_data_bundle.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Model\LightData.c">
+    <Compile Include="Model\Header Files\light_data.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Model\TempHumData.c">
+    <Compile Include="Model\Header Files\temp_hum_data.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Model\Source Files\co2_data.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Model\Source Files\final_data_bundle.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Model\Source Files\light_data.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Model\Source Files\temp_hum_data.c">
       <SubType>compile</SubType>
     </Compile>
     <None Include="SensorTask.c">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="Model\test_model.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>
@@ -417,6 +435,8 @@
     <Folder Include="Model" />
     <Folder Include="Controller" />
     <Folder Include="IndividualSensor" />
+    <Folder Include="Model\Header Files\" />
+    <Folder Include="Model\Source Files\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\Example\" />
     <Folder Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\" />
