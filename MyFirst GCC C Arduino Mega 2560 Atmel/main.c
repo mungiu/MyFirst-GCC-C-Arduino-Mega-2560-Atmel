@@ -30,19 +30,19 @@
 /* Priorities at which the tasks are created. */
 #define LED_TASK_PRIORITY				( tskIDLE_PRIORITY + 2 ) /*Must be highest priority*/
 #define LORAWAN_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
-#define	TASK_MY_SECOND_TASK_PRIORITY	( tskIDLE_PRIORITY + 1 )
-#define	TASK_MY_THIRD_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
-#define	TASK_MY_FORTH_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
+#define CO2_TASK_PRIORITY				( tskIDLE_PRIORITY + 1 )
+#define	LIGHT_TASK_PRIORITY				( tskIDLE_PRIORITY + 1 )
+#define	HUMIDITY_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
 
 /* Task stack sizes*/
-#define	TASK_MY_SECOND_TASK_STACK		( configMINIMAL_STACK_SIZE )
-#define	TASK_MY_THIRD_TASK_STACK		( configMINIMAL_STACK_SIZE )
-#define	TASK_MY_FORTH_TASK_STACK		( configMINIMAL_STACK_SIZE )
+#define	TASK_MY_Co2_TASK_STACK		( configMINIMAL_STACK_SIZE )
+#define	TASK_MY_LIGHT_TASK_STACK		( configMINIMAL_STACK_SIZE )
+#define	TASK_MY_HUMIDITY_TASK_STACK		( configMINIMAL_STACK_SIZE )
 
 /* Task Handles */
-TaskHandle_t _taskSecondHandle = NULL;
-TaskHandle_t _taskThirdHandle = NULL;
-TaskHandle_t _taskForthHandle = NULL;
+TaskHandle_t _taskCo2Handle = NULL;
+TaskHandle_t _taskLightHandle = NULL;
+TaskHandle_t _taskHumidityHandle = NULL;
 EventGroupHandle_t contrlEvtGrp = NULL;
 
 //declaration
@@ -50,7 +50,7 @@ EventGroupHandle_t contrlEvtGrp = NULL;
 TickType_t xTimeOnEntering;
 
 // --------------------------------------------------------------------------------------
-void taskMySeccondTask(void* pvParameters)
+void taskMyCo2SensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.
 	(void)pvParameters;
@@ -65,7 +65,7 @@ void taskMySeccondTask(void* pvParameters)
 }
 
 // --------------------------------------------------------------------------------------
-void taskMyThirdTask(void* pvParameters)
+void taskLightSensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.
 	(void)pvParameters;
@@ -80,7 +80,7 @@ void taskMyThirdTask(void* pvParameters)
 }
 
 // --------------------------------------------------------------------------------------
-void taskMyForthTask(void* pvParameters)
+void taskMyHumiditySensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.
 	(void)pvParameters;
@@ -142,28 +142,28 @@ void main(void)
 
 	/* Create the task, storing the handle. */
 	xTaskCreate(
-	taskMySeccondTask,       /* Function that implements the task. */
-	"MySecondTask",          /* Text name for the task. */
-	TASK_MY_SECOND_TASK_STACK,      /* Stack size in words, not bytes. */
-	(void*)2,    /* Parameter passed into the task. */
-	TASK_MY_SECOND_TASK_PRIORITY,/* Priority at which the task is created. */
-	&_taskSecondHandle);      /* Used to pass out the created task's handle. */
+	taskMyCo2SensorTask,			/* Function that implements the task. */
+	"MyCo2SensorTask",				/* Text name for the task. */
+	TASK_MY_Co2_TASK_STACK,      /* Stack size in words, not bytes. */
+	(void*)2,						/* Parameter passed into the task. */
+	CO2_TASK_PRIORITY,	/* Priority at which the task is created. */
+	&_taskCo2Handle);			/* Used to pass out the created task's handle. */
 
 	xTaskCreate(
-	taskMyThirdTask,       /* Function that implements the task. */
-	"MyThirdTask",          /* Text name for the task. */
-	TASK_MY_THIRD_TASK_STACK,      /* Stack size in words, not bytes. */
-	(void*)3,    /* Parameter passed into the task. */
-	TASK_MY_THIRD_TASK_PRIORITY,/* Priority at which the task is created. */
-	&_taskThirdHandle);      /* Used to pass out the created task's handle. */
+	taskLightSensorTask,				/* Function that implements the task. */
+	"MyLightSensorTask",					/* Text name for the task. */
+	TASK_MY_LIGHT_TASK_STACK,		/* Stack size in words, not bytes. */
+	(void*)3,						/* Parameter passed into the task. */
+	LIGHT_TASK_PRIORITY,	/* Priority at which the task is created. */
+	&_taskLightHandle);				/* Used to pass out the created task's handle. */
 
 	xTaskCreate(
-	taskMyForthTask,       /* Function that implements the task. */
-	"MyForthTask",          /* Text name for the task. */
-	TASK_MY_FORTH_TASK_STACK,      /* Stack size in words, not bytes. */
-	(void*)4,    /* Parameter passed into the task. */
-	TASK_MY_FORTH_TASK_PRIORITY,/* Priority at which the task is created. */
-	&_taskForthHandle);      /* Used to pass out the created task's handle. */
+	taskMyHumiditySensorTask,				/* Function that implements the task. */
+	"MyHumiditySensorTask",					/* Text name for the task. */
+	TASK_MY_HUMIDITY_TASK_STACK,		/* Stack size in words, not bytes. */
+	(void*)4,						/* Parameter passed into the task. */
+	HUMIDITY_TASK_PRIORITY,	/* Priority at which the task is created. */
+	&_taskHumidityHandle);				/* Used to pass out the created task's handle. */
 
 	// Let the operating system take over :)
 	vTaskStartScheduler();
