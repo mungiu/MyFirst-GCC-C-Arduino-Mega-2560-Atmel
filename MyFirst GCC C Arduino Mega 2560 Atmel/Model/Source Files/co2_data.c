@@ -34,10 +34,10 @@ void set_is_corrupt_data_c(pco2_data co2_data, bool is_corrupt_data) {
 	}
 }
 
-bool get_is_corrupt_data_c(pco2_data is_curropt_data) {
+bool get_is_corrupt_data_c(pco2_data co2_data) {
 	bool is_currupt = false;
 	if (xSemaphoreTake(co2ShareMutex, portMAX_DELAY)) {
-		is_currupt = is_curropt_data->is_corrupt_data;
+		is_currupt = co2_data->is_corrupt_data;
 		xSemaphoreGive(co2ShareMutex);
 	}
 	else {
@@ -57,10 +57,10 @@ void destroy_co2_data(pco2_data co2_data) {
 	free(co2_data);
 }
 
-uint16_t get_co2_data(pco2_data co2_data_value) {
+uint16_t get_co2_data(pco2_data co2_data) {
 	uint16_t c_data = 0;
 	if (xSemaphoreTake(co2ShareMutex, portMAX_DELAY)) {
-		c_data = co2_data_value->co2_data_value;
+		c_data = co2_data->co2_data_value;
 		xSemaphoreGive(co2ShareMutex);
 	}
 	return c_data;

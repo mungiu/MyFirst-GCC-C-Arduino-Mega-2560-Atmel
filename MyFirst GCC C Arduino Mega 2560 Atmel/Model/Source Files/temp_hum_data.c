@@ -38,10 +38,10 @@ void set_is_corrupt_data_th(ptemp_hum_data temp_hum_data, bool is_corrupt_data) 
 	}
 }
 
-bool get_is_corrupt_data_th(ptemp_hum_data is_curropt_data) {
+bool get_is_corrupt_data_th(ptemp_hum_data bool_currupt_data) {
 	bool is_currupt = false;
 	if (xSemaphoreTake(temp_hum_SharedMutex, portMAX_DELAY)) {
-		is_currupt = is_curropt_data->is_corrupt_data;
+		is_currupt = bool_currupt_data->is_corrupt_data;
 		xSemaphoreGive(temp_hum_SharedMutex);
 	}
 	else {
@@ -57,10 +57,10 @@ void set_hum_data(ptemp_hum_data temp_hum_data, uint16_t hum_data_value) {
 	}
 }
 
-uint16_t get_hum_data(ptemp_hum_data hum_data_value) {
+uint16_t get_hum_data(ptemp_hum_data temp_hum_data) {
 	uint16_t h_data = 0;
 	if (xSemaphoreTake(temp_hum_SharedMutex, portMAX_DELAY)) {
-		h_data = hum_data_value->hum_data_value;
+		h_data = temp_hum_data->hum_data_value;
 		xSemaphoreGive(temp_hum_SharedMutex);
 	}
 	return h_data;
@@ -73,18 +73,18 @@ void set_temp_data(ptemp_hum_data temp_hum_data, uint16_t temp_data_value) {
 	}
 }
 
-uint16_t get_temp_data(ptemp_hum_data temp_data_value) {
+uint16_t get_temp_data(ptemp_hum_data temp_hum_data) {
 	uint16_t t_data = 0;
 	if (xSemaphoreTake(temp_hum_SharedMutex, portMAX_DELAY)) {
-		t_data = temp_data_value->temp_data_value;
+		t_data = temp_hum_data->temp_data_value;
 		xSemaphoreGive(temp_hum_SharedMutex);
 	}
 	
 	return t_data;
 }
 
-void print_temp_hum_data(ptemp_hum_data temp_hum_data_t) {
-	printf("TEMPERATURE SENSOR INPUT: %d \n HUMDITY SENSOR INPUT: %d", temp_hum_data_t->temp_data_value, temp_hum_data_t->hum_data_value);
+void print_temp_hum_data(ptemp_hum_data temp_hum_data) {
+	printf("TEMPERATURE SENSOR INPUT: %d \n HUMDITY SENSOR INPUT: %d", temp_hum_data->temp_data_value, temp_hum_data->hum_data_value);
 }
 void destroy_temp_hum_data(ptemp_hum_data temp_hum_data) {
 	free(temp_hum_data);

@@ -3,7 +3,6 @@
 #include <ATMEGA_FreeRTOS.h>
 #include <semphr.h>
 #include <portmacro.h>
-
 #include "..//Header Files/light_data.h"
 
 SemaphoreHandle_t lightSharedMutex;
@@ -43,12 +42,12 @@ void set_is_corrupt_data(plight_data light_data, bool bool_corrupt_data)
 	}
 }
 
-bool get_is_corrupt_data(plight_data bool_curropt_data)
+bool get_is_corrupt_data(plight_data light_data)
 {
 	bool is_currupt = false;
 	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
 	{
-		is_currupt = bool_curropt_data->corrupt_data;
+		is_currupt = light_data->corrupt_data;
 		xSemaphoreGive(lightSharedMutex);
 	}
 	else
@@ -67,20 +66,20 @@ void set_light_data(plight_data light_data, uint16_t light_data_value)
 	}
 }
 
-uint16_t get_light_data(plight_data light_data_value)
+uint16_t get_light_data(plight_data light_data)
 {
 	uint16_t ldata = 0;
 	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
 	{
-		ldata = light_data_value->light_data_value
+		ldata = light_data->light_data_value
 		xSemaphoreGive(lightSharedMutex);
 	}
 	return ldata;
 }
 
-void print_light_data(plight_data light_data_value)
+void print_light_data(plight_data light_data)
 {
-	printf("LIGHT SENSOR INPUT: %d", light_data_value->light_data_value);
+	printf("LIGHT SENSOR INPUT: %d", light_data->light_data_value);
 }
 
 void destory_light_data(plight_data light_data)
