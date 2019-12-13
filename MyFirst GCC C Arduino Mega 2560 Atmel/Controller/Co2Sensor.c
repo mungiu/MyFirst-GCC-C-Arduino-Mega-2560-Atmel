@@ -15,7 +15,10 @@
 
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
-//---
+//---Model---//
+#include "..//Model/Header Files/co2_data.h"
+#include "..//Model/shared_variables.h"
+pco2_data data_co2;
 
 //co2 sensor
 #include <mh_z19.h>
@@ -53,6 +56,9 @@ void my_co2_call_back(uint16_t ppm)
 {
 	//save co2 ppm value
 	ppmReturn=ppm;
+	
+	//save to shared
+	data_co2 = create_co2_data(ppm, true);
 }
 
 

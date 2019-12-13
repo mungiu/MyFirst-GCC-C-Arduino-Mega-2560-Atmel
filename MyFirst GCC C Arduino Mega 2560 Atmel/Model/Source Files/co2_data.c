@@ -68,5 +68,5 @@ uint16_t get_co2_data(pco2_data co2_data) {
 
 
 void print_co2_data(pco2_data co2_data) {
-	printf("CO2 SENSOR INPUT: %d", co2_data->co2_data_value);
+	printf("CO2 SENSOR INPUT: %d\n", co2_data->co2_data_value);
 }

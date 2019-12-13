@@ -13,7 +13,7 @@ void initializ_ligtht_mutext()
 	lightSharedMutex = xSemaphoreCreateMutex();
 }
 
-plight_data create_light_data(uint16_t light_data_value, bool corrupt_data)
+plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)
 {
 	//we initialize the shared light mutex here so we have the priority inheritance
 	initializ_ligtht_mutext();
@@ -24,8 +24,13 @@ plight_data create_light_data(uint16_t light_data_value, bool corrupt_data)
 	}
 	else
 	{
-		light_data->light_data_value = light_data_value;
+		light_data->_fullRaw = _fullRaw;
+		light_data->_visibleRaw = _visibleRaw;
+		light_data->_infraredRaw = _infraredRaw;
+		light_data->_lux = _lux;
+		
 		light_data->corrupt_data = corrupt_data;
+		
 		return light_data;
 	}
 }
@@ -58,7 +63,7 @@ bool get_is_corrupt_data(plight_data light_data)
 	return is_currupt;
 }
 
-void set_light_data(plight_data light_data, uint16_t light_data_value)
+/*void set_light_data(plight_data light_data, uint16_t light_data_value)
 {
 	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
 	{
@@ -76,11 +81,14 @@ uint16_t get_light_data(plight_data light_data)
 		xSemaphoreGive(lightSharedMutex);
 	}
 	return ldata;
-}
+}*/
 
 void print_light_data(plight_data light_data)
 {
-	printf("LIGHT SENSOR INPUT: %d", light_data->light_data_value);
+	printf("LIGHT SENSOR INPUT _fullRaw: %d\n", light_data->_fullRaw);
+	printf("LIGHT SENSOR INPUT _visibleRaw: %d\n", light_data->_visibleRaw);
+	printf("LIGHT SENSOR INPUT _infraredRaw: %d\n", light_data->_infraredRaw);
+	printf("LIGHT SENSOR INPUT _lux: %d\n", light_data->_lux);
 }
 
 void destory_light_data(plight_data light_data)

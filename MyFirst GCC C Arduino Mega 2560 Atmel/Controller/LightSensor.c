@@ -12,7 +12,10 @@
 
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
-//---
+//---Model---//
+#include "..//Model/Header Files/light_data.h"
+#include "..//Model/shared_variables.h"
+plight_data data_light;
 
 //light sensor
 #include <tsl2591.h>
@@ -101,7 +104,8 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 		{
 			// If last command performed successful then
 			// save to struct.
-
+			data_light = create_light_data(_fullRaw, _visibleRaw, _infraredRaw, _lux, false);
+			
 			//lightMeasurement = { _fullRaw, _visibleRaw, _infraredRaw, _lux };
 		}
 	}
