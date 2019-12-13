@@ -1,8 +1,6 @@
 /*---instead---*/
 #include <avr/io.h>
 #include <avr/sfr_defs.h>
-#include <ATMEGA_FreeRTOS.h>
-#include <FreeRTOSTraceDriver.h>
 
 /*---write to terminal---*/
 #include <stdio_driver.h>
@@ -20,8 +18,11 @@
 #include <ihal.h>
 
 //--- FreeRTOS ---//
+#include <ATMEGA_FreeRTOS.h>
+#include <FreeRTOSTraceDriver.h>
 #include "task.h"
 
+//---Task---//
 #include "Controller/loraWAN.h"
 #include "Controller/Co2Sensor.h"
 #include "Controller/LightSensor.h"
@@ -133,14 +134,11 @@ void main(void)
 		printf("The event group was created.");
 	}
 	
-	
-	
-	/* Create the task, not storing the handle. */
+	/* Create the task, storing the handle. */
 	
 	//Lorawan task
 	lora_handler_create(LORAWAN_TASK_PRIORITY, contrlEvtGrp);
-
-	/* Create the task, storing the handle. */
+	
 	xTaskCreate(
 	taskMyCo2SensorTask,			/* Function that implements the task. */
 	"MyCo2SensorTask",				/* Text name for the task. */

@@ -5,11 +5,17 @@
 *  Author: andre
 */
 #include "loraWAN.h"
-#include "..//Model/Header Files/final_data_bundle.h"
 
 #include <stddef.h>
 #include <iled.h>
 
+//---Model---//
+#include "..//Model/shared_variables.h"
+#include "..//Model/Header Files/final_data_bundle.h"
+
+#include "..//Model/Header Files/temp_hum_data.h"
+#include "..//Model/Header Files/light_data.h"
+#include "..//Model/Header Files/co2_data.h"
 
 // Parameters for OTAA join - You have got these in a mail from IHA
 #define LORA_appEUI "1990c988b325074e"

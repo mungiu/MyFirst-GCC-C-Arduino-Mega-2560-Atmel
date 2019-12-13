@@ -15,7 +15,10 @@
 
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
-//---
+//---Model---//
+#include "..//Model/Header Files/temp_hum_data.h"
+#include "..//Model/shared_variables.h"
+ptemp_hum_data data_temp_hum;
 
 //Humidity Temperature sensor
 #include <hih8120.h>
@@ -68,6 +71,9 @@ void getTemperatureHumiditySensorMeasurement() {
 		//print results
 		//something is wrong with the formatter when using floating print format ex. %5.4f. Even when using syntax from the Internet or Ib s example. Using hex format to verify sensor response.
 		printf("Humidity: %08d\nTemperature: %08d\n", humidity, temperature);
+		
+		//Save to model struct
+		data_temp_hum = create_temp_hum_data(temperature, humidity , false);
 
 };
 

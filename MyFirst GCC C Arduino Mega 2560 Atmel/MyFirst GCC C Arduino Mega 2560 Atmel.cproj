@@ -301,6 +301,9 @@
     <Compile Include="Model\Header Files\temp_hum_data.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Model\shared_variables.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Model\Source Files\co2_data.c">
       <SubType>compile</SubType>
     </Compile>
