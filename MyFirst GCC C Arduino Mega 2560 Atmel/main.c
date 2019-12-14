@@ -22,15 +22,18 @@
 #include <FreeRTOSTraceDriver.h>
 #include "task.h"
 
+//---Model---//
+#include "Model/shared_variables.h"
+#include "Model/Header Files/final_data_bundle.h"
+#include "Model/Header Files/temp_hum_data.h"
+#include "Model/Header Files/light_data.h"
+#include "Model/Header Files/co2_data.h"
+
 //---Task---//
 #include "Controller/loraWAN.h"
 #include "Controller/Co2Sensor.h"
 #include "Controller/LightSensor.h"
 #include "Controller/Co2Sensor.h"
-
-//----Test import---//
-#include "Test/co2Test.h"
-#include "Test/minunit.h"
 
 /* Priorities at which the tasks are created. */
 #define LED_TASK_PRIORITY				( tskIDLE_PRIORITY + 2 ) /*Must be highest priority*/
@@ -102,17 +105,10 @@ void taskMyHumiditySensorTask(void* pvParameters)
 // --------------------------------------------------------------------------------------
 void main(void)
 {
-
-	//////////////////////////////////////////////// START
-	// testing and printing out test results, NOTE tests that FAIL are only printed out
-	char* result = test_suite_c02();                                        // assigning the result of "ALL TESTSS PASSED (0 or 1) into "result"
-	printf("Number of tests run: %d\n", tests_run);
-	printf("!!! NOTE: Only the first test that failed is presented below !!!\n");
-	printf("!!! NOTE: If you se no notice of failed tests below, it means they all have passed !!!\n\n");
-	if (result) printf("FAIL: %s\n", result);                            // if result is a string, we will print the string which is the failure message
-
-	//removeAllItems();                                                    // clearing the list after tests
-	//////////////////////////////////////////////// END
+	//initialize model
+	data_co2 = create_co2_data(0, true);
+	data_light = create_light_data(0, 0, 0, 0, true);
+	data_temp_hum = create_temp_hum_data(0, 0, true);
 
 	//initialize driver
 	stdioCreate(0);

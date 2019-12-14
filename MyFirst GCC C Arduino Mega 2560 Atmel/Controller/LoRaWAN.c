@@ -112,24 +112,25 @@ static void _lora_setup(void)
 /*-----------------------------------------------------------*/
 void lora_handler_task( void* pvParameters )
 {
+	//fetch controller eventgroup from cast parameters
+	EventGroupHandle_t contrlEvtGrp;
+	contrlEvtGrp = (EventGroupHandle_t) pvParameters;
+	static e_LoRa_return_code_t rc;
+	if(false){
+	// Hardware reset of LoRaWAN transceiver
+	lora_driver_reset_rn2483(1);
+	vTaskDelay(2);
+	lora_driver_reset_rn2483(0);
+	vTaskDelay(150);				// Give it a chance to wakeup
+	lora_driver_flush_buffers();	// get rid of first version string from module after reset!
+	_lora_setup();
+
+	_uplink_payload.len = 6;
+	_uplink_payload.port_no = 2;
+	}
+	
 	for(;;)
 	{
-		//fetch controller eventgroup from cast parameters
-		EventGroupHandle_t contrlEvtGrp;
-		contrlEvtGrp = (EventGroupHandle_t) pvParameters;
-		static e_LoRa_return_code_t rc;
-		
-		// Hardware reset of LoRaWAN transceiver
-		lora_driver_reset_rn2483(1);
-		vTaskDelay(2);
-		lora_driver_reset_rn2483(0);
-		vTaskDelay(150);				// Give it a chance to wakeup
-		lora_driver_flush_buffers();	// get rid of first version string from module after reset!
-		_lora_setup();
-
-		_uplink_payload.len = 6;
-		_uplink_payload.port_no = 2;
-
 		//For timing next measurement initialization.
 		xTimeOnEntering = xTaskGetTickCount();
 
@@ -143,6 +144,13 @@ void lora_handler_task( void* pvParameters )
 		// wait to take semaphores back when available
 		EventBits_t uxBits = xEventGroupWaitBits(contrlEvtGrp, 0b01110000, /*clear bits after wait*/ pdTRUE, /*wait for all bits AND logic not OR*/ pdTRUE, maxDelaySensor);
 		puts("Controller took sensor result semaphores");
+		
+		puts("data saved in sensor structs by sensor tasks");
+		print_co2_data(data_co2);
+		print_light_data(data_light);
+		print_temp_hum_data(data_temp_hum);
+
+		if(false){
 
 		//-------------
 		/*Send data to Lorawan part*/
@@ -171,7 +179,11 @@ void lora_handler_task( void* pvParameters )
 		led_short_puls(led_ST4);  // OPTIONAL
 		printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(		lora_driver_sent_upload_message(false, &_uplink_payload)));
 		
+		}
+		
 		puts("Controller sleeps - Delay until next measurement");
 		vTaskDelayUntil(&xTimeOnEntering, 5000/portTICK_PERIOD_MS);
+		
+		
 	}
 }

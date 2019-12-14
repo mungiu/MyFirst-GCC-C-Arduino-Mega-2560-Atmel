@@ -100,13 +100,13 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 			printf("Lux overflow - change gain and integration time\n");
 		}
 
-		if(TSL2591_OK)
+		if(TSL2591_OK == rc)
 		{
 			// If last command performed successful then
 			// save to struct.
-			data_light = create_light_data(_fullRaw, _visibleRaw, _infraredRaw, _lux, false);
-			
-			//lightMeasurement = { _fullRaw, _visibleRaw, _infraredRaw, _lux };
+			//data_light = create_light_data(_fullRaw, _visibleRaw, _infraredRaw, _lux, false);
+			set_light_data(data_light,_fullRaw,_visibleRaw,_infraredRaw,_lux);
+			set_is_corrupt_data(data_light,false);
 		}
 	}
 }
