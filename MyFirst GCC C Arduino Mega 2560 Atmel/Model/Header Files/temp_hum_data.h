@@ -2,12 +2,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef struct temp_hum_data_t {
-	uint16_t temp_data_value;
-	uint16_t hum_data_value;
-	bool is_corrupt_data;
-}temp_hum_data_t;
-
 typedef struct temp_hum_data_t* ptemp_hum_data;
 
 ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value, bool is_corrupt_data);

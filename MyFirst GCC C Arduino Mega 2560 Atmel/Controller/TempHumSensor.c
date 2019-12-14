@@ -73,7 +73,10 @@ void getTemperatureHumiditySensorMeasurement() {
 		printf("Humidity: %08d\nTemperature: %08d\n", humidity, temperature);
 		
 		//Save to model struct
-		data_temp_hum = create_temp_hum_data(temperature, humidity , false);
+		//data_temp_hum = create_temp_hum_data(temperature, humidity , false);
+		set_temp_data(data_temp_hum,temperature);
+		set_hum_data(data_temp_hum,humidity);
+		set_is_corrupt_data_th(data_temp_hum,false);
 
 };
 

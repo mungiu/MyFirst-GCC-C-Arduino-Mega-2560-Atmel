@@ -58,7 +58,9 @@ void my_co2_call_back(uint16_t ppm)
 	ppmReturn=ppm;
 	
 	//save to shared
-	data_co2 = create_co2_data(ppm, true);
+	set_co2_data(data_co2,ppm);
+	set_is_corrupt_data_c(data_co2,false);
+	//data_co2 = create_co2_data(ppm, true);
 }
 
 
