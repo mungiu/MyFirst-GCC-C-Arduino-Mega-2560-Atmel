@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-
 typedef struct co2_data_t* pco2_data;
 //constructor
 pco2_data create_co2_data(uint16_t co2_data_value, bool is_corrupt_data);
