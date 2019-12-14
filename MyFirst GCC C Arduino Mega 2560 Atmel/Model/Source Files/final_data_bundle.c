@@ -33,10 +33,10 @@ pfinal_data_bundle create_final_data_bundle(plight_data light_data_obj, pco2_dat
 pco2_data get_co2_data_obj(pfinal_data_bundle self)
 {
 	pco2_data temp_co2_obj;
-	if (xSemaphoreTake(final_data_mutex, portMAX_DELAY)) 
+	if (xSemaphoreTake(self->final_data_mutex, portMAX_DELAY)) 
 	{
 		temp_co2_obj = self->co2_data_obj;
-		xSemaphoreGive(final_data_mutex);
+		xSemaphoreGive(self->final_data_mutex);
 	}
 	else 
 	{
@@ -48,10 +48,10 @@ pco2_data get_co2_data_obj(pfinal_data_bundle self)
 plight_data get_light_data_obj(pfinal_data_bundle self)
 {
 	plight_data temp_light_obj;
-	if (xSemaphoreTake(final_data_mutex, portMAX_DELAY)) 
+	if (xSemaphoreTake(self->final_data_mutex, portMAX_DELAY)) 
 	{
 		temp_light_obj = self->light_data_obj;
-		xSemaphoreGive(final_data_mutex);
+		xSemaphoreGive(self->final_data_mutex);
 	}
 	else {
 		//do something
@@ -62,10 +62,10 @@ plight_data get_light_data_obj(pfinal_data_bundle self)
 ptemp_hum_data get_temp_hum_data_obj(pfinal_data_bundle self)
 {
 	ptemp_hum_data temp_temp_hum_obj;
-	if (xSemaphoreTake(final_data_mutex, portMAX_DELAY)) {
+	if (xSemaphoreTake(self->final_data_mutex, portMAX_DELAY)) {
 
 		temp_temp_hum_obj = self->temp_hum_data_obj;
-		xSemaphoreGive(final_data_mutex);
+		xSemaphoreGive(self->final_data_mutex);
 	}
 	else {
 		//do something
@@ -74,6 +74,8 @@ ptemp_hum_data get_temp_hum_data_obj(pfinal_data_bundle self)
 }
 
 void destroy_final_data(pfinal_data_bundle final_data_bundle)
-{
+{if(xSemaphoreTake(final_data_bundle->final_data_mutex, portMAX_DELAY)){
+	
 	vPortFree(final_data_bundle);
 }
+ }

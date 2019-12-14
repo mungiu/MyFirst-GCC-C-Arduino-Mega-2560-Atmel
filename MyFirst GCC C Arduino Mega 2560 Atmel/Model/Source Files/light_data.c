@@ -81,18 +81,44 @@ void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visible
 		//throw exception
 	}
 }
-/*
-uint16_t get_light_data(plight_data light_data)
+
+/*uint16_t get_light_data(plight_data light_data)
 {
 	uint16_t ldata = 0;
 	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
 	{
-		ldata = light_data->light_data_value;
+		ldata = light_data->;
 		xSemaphoreGive(lightSharedMutex);
 	}
 	return ldata;
 }*/
-
+uint16_t get_fullRaw(plight_data fullRaw){
+	uint16_t fr = 0;
+	if (xSemaphoreTake(fullRaw->lightSharedMutex, portMAX_DELAY))
+	{
+		fr =fullRaw->_fullRaw
+		xSemaphoreGive(lightSharedMutex);
+	}
+	return fr;
+}
+uint16_t get_visibleRaw(plight_data visibleRaw){
+	uint16_t vr = 0;
+	if (xSemaphoreTake(visibleRaw->lightSharedMutex, portMAX_DELAY))
+	{
+		vr = visibleRaw->_visibleRaw;
+		xSemaphoreGive(visibleRaw->lightSharedMutex);
+	}
+	return vr;
+}
+uint16_t get_infraredRaw(plight_data infraredRaw){
+uint16_t ir = 0;
+if (xSemaphoreTake(infraredRaw->lightSharedMutex, portMAX_DELAY))
+{
+	ir = infraredRaw->_infraredRaw;
+	xSemaphoreGive(infraredRaw->lightSharedMutex);
+}
+return ir;
+}
 void print_light_data(plight_data light_data)
 {
 	if (xSemaphoreTake(light_data->lightSharedMutex, portMAX_DELAY)){

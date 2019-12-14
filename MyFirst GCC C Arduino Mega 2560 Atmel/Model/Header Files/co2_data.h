@@ -14,5 +14,5 @@ void set_co2_data(pco2_data co2_data, uint16_t co2_data_value);
 //getter for co2 value
 uint16_t get_co2_data(pco2_data co2_data_value);
 void print_co2_data(pco2_data co2_data);
-void initialize_co2_mutext();
+
 void destroy_co2_data(pco2_data co2_data);
