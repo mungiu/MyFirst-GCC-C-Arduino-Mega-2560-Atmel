@@ -2,13 +2,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef struct light_data_t {
-	uint16_t _fullRaw;
-	uint16_t _visibleRaw;
-	uint16_t _infraredRaw;
-	float _lux;
-	bool corrupt_data;
-}light_data_t;
 
 typedef struct light_data_t* plight_data;
 

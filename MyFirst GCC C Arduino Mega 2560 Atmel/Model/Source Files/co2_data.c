@@ -16,7 +16,7 @@ void initialize_co2_mutext() {
 
 pco2_data create_co2_data(uint16_t co2_data_value, bool corrupt_data) {
  initialize_co2_mutext();
-	pco2_data co2_data = (pco2_data)pvPortMalloc(sizeof(co2_data_t));
+	pco2_data co2_data = (pco2_data)pvPortMalloc(sizeof(struct co2_data_t));
 	if (co2_data == NULL) {
 		return NULL;
 	}

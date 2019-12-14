@@ -19,8 +19,8 @@ void initialize_final_data_mutext()
 
 
 pfinal_data_bundle create_final_data_bundle(plight_data light_data_obj, pco2_data co2_data_obj, ptemp_hum_data temp_hum_data_obj)
-{
-	pfinal_data_bundle final_data = (pfinal_data_bundle)pvPortMalloc(sizeof(final_data_bundle_t));
+{initialize_final_data_mutext();
+	pfinal_data_bundle final_data = (pfinal_data_bundle)pvPortMalloc(sizeof(struct final_data_bundle_t));
 	
 	if (final_data == NULL) 
 	{

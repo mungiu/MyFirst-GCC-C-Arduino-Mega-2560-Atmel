@@ -18,7 +18,7 @@ void initialize_temp_hum_mutext() {
 
 ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value ,bool is_corrupt_data) {
 	initialize_temp_hum_mutext();
-	ptemp_hum_data t_h_data = (ptemp_hum_data)pvPortMalloc(sizeof(temp_hum_data_t));
+	ptemp_hum_data t_h_data = (ptemp_hum_data)pvPortMalloc(sizeof(struct temp_hum_data_t));
 	if (t_h_data == NULL) {
 		return NULL;
 	}
