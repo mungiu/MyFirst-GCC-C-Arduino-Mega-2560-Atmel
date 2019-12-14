@@ -3,11 +3,6 @@
 #include "light_data.h"
 #include "temp_hum_data.h"
 
-typedef struct final_data_bundle_t {
-	plight_data light_data_obj;
-	pco2_data co2_data_obj;
-	ptemp_hum_data temp_hum_data_obj;
-}final_data_bundle_t;
 
 typedef struct final_data_bundle_t* pfinal_data_bundle;
 

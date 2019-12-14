@@ -5,14 +5,14 @@
 #include <portmacro.h>
 #include "..//Header Files/co2_data.h"
 
-typedef struct co2_data_t {
+ struct co2_data_t {
 	uint16_t co2_data_value;
 	bool is_corrupt_data;
-	SemaphoreHandle_t co2ShareMutex;
-}co2_data_t;
+  SemaphoreHandle_t co2ShareMutex;
+};
 
 pco2_data create_co2_data(uint16_t co2_data_value, bool corrupt_data) {
-	pco2_data co2_data = (pco2_data)malloc(sizeof(co2_data_t));
+	pco2_data co2_data = (pco2_data)pvPortMalloc(sizeof(struct co2_data_t));
 	if (co2_data == NULL) {
 		return NULL;
 	}
@@ -55,7 +55,7 @@ void set_co2_data(pco2_data co2_data, uint16_t co2_data_value) {
 
 void destroy_co2_data(pco2_data co2_data) {
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
-	free(co2_data);
+	vPortFree(co2_data);
 	}
 }
 

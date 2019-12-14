@@ -5,29 +5,27 @@
 #include <portmacro.h>
 #include "..//Header Files/final_data_bundle.h"
 
-SemaphoreHandle_t final_data_mutex;
-
-void initialize_final_data_mutext()
-{
-	final_data_mutex = xSemaphoreCreateMutex();
-}
-
+ struct final_data_bundle_t {
+	plight_data light_data_obj;
+	pco2_data co2_data_obj;
+	ptemp_hum_data temp_hum_data_obj;
+	SemaphoreHandle_t final_data_mutex;
+};
 
 pfinal_data_bundle create_final_data_bundle(plight_data light_data_obj, pco2_data co2_data_obj, ptemp_hum_data temp_hum_data_obj)
 {
-	pfinal_data_bundle final_data = (pfinal_data_bundle)malloc(sizeof(final_data_bundle_t));
-	
+	pfinal_data_bundle final_data = (pfinal_data_bundle)pvPortMalloc(sizeof(struct final_data_bundle_t));
 	if (final_data == NULL) 
 	{
 		return NULL;
 	}
 	else
 	{
-		initialize_final_data_mutext(); 
-
 		final_data->co2_data_obj = co2_data_obj;
 		final_data->light_data_obj = light_data_obj;
 		final_data->temp_hum_data_obj = temp_hum_data_obj;
+		final_data->final_data_mutex = xSemaphoreCreateMutex();
+
 		return final_data;
 	}
 }
@@ -77,5 +75,5 @@ ptemp_hum_data get_temp_hum_data_obj(pfinal_data_bundle self)
 
 void destroy_final_data(pfinal_data_bundle final_data_bundle)
 {
-	free(final_data_bundle);
+	vPortFree(final_data_bundle);
 }
