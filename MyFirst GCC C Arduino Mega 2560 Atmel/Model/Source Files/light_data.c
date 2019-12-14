@@ -6,9 +6,16 @@
 
 #include "..//Header Files/light_data.h"
 
+typedef struct light_data_t {
+	uint16_t _fullRaw;
+	uint16_t _visibleRaw;
+	uint16_t _infraredRaw;
+	float _lux;
+	bool corrupt_data;
+};
 SemaphoreHandle_t lightSharedMutex;
 
-void initializ_ligtht_mutext()
+void initializ_light_mutext()
 {
 	lightSharedMutex = xSemaphoreCreateMutex();
 }
@@ -16,8 +23,8 @@ void initializ_ligtht_mutext()
 plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)
 {
 	//we initialize the shared light mutex here so we have the priority inheritance
-	initializ_ligtht_mutext();
-	plight_data light_data = (plight_data)malloc(sizeof(light_data_t));
+	initializ_light_mutext();
+	plight_data light_data = (plight_data)pvPortMalloc(sizeof(light_data_t));
 	if (light_data == NULL)
 	{
 		return NULL;
@@ -93,5 +100,5 @@ void print_light_data(plight_data light_data)
 
 void destory_light_data(plight_data light_data)
 {
-	free(light_data);
+	vPortFree(light_data);
 }

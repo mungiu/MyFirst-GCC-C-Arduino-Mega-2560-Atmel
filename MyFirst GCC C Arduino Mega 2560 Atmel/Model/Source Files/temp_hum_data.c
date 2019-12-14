@@ -4,7 +4,11 @@
 #include <semphr.h>
 #include <portmacro.h>
 #include "..//Header Files/temp_hum_data.h"
-
+typedef struct temp_hum_data_t {
+	uint16_t temp_data_value;
+	uint16_t hum_data_value;
+	bool is_corrupt_data;
+}temp_hum_data_t;
 SemaphoreHandle_t temp_hum_SharedMutex;
 
 void initialize_temp_hum_mutext() {
@@ -14,7 +18,7 @@ void initialize_temp_hum_mutext() {
 
 ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value ,bool is_corrupt_data) {
 	initialize_temp_hum_mutext();
-	ptemp_hum_data t_h_data = (ptemp_hum_data)malloc(sizeof(temp_hum_data_t));
+	ptemp_hum_data t_h_data = (ptemp_hum_data)pvPortMalloc(sizeof(temp_hum_data_t));
 	if (t_h_data == NULL) {
 		return NULL;
 	}
@@ -87,5 +91,5 @@ void print_temp_hum_data(ptemp_hum_data temp_hum_data) {
 	printf("TEMPERATURE SENSOR INPUT: %d \n HUMDITY SENSOR INPUT: %d\n", temp_hum_data->temp_data_value, temp_hum_data->hum_data_value);
 }
 void destroy_temp_hum_data(ptemp_hum_data temp_hum_data) {
-	free(temp_hum_data);
+	vPortFree(temp_hum_data);
 }

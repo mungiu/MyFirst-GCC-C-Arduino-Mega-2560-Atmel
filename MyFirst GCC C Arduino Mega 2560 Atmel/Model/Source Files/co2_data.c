@@ -4,7 +4,10 @@
 #include <semphr.h>
 #include <portmacro.h>
 #include "..//Header Files/co2_data.h"
-
+typedef struct co2_data_t {
+	uint16_t co2_data_value;
+	bool is_corrupt_data;
+};
 SemaphoreHandle_t co2ShareMutex;
 
 void initialize_co2_mutext() {
@@ -12,8 +15,8 @@ void initialize_co2_mutext() {
 }
 
 pco2_data create_co2_data(uint16_t co2_data_value, bool corrupt_data) {
-	void initialize_co2_mutext();
-	pco2_data co2_data = (pco2_data)malloc(sizeof(co2_data_t));
+ initialize_co2_mutext();
+	pco2_data co2_data = (pco2_data)pvPortMalloc(sizeof(co2_data_t));
 	if (co2_data == NULL) {
 		return NULL;
 	}
@@ -54,7 +57,7 @@ void set_co2_data(pco2_data co2_data, uint16_t co2_data_value) {
 }
 
 void destroy_co2_data(pco2_data co2_data) {
-	free(co2_data);
+	vPortFree(co2_data);
 }
 
 uint16_t get_co2_data(pco2_data co2_data) {
