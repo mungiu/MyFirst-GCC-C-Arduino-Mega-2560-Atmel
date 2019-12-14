@@ -5,7 +5,7 @@
 #include <portmacro.h>
 #include "..//Header Files/final_data_bundle.h"
 
-typedef struct final_data_bundle_t {
+ struct final_data_bundle_t {
 	plight_data light_data_obj;
 	pco2_data co2_data_obj;
 	ptemp_hum_data temp_hum_data_obj;

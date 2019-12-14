@@ -4,7 +4,7 @@
 #include <semphr.h>
 #include <portmacro.h>
 #include "..//Header Files/co2_data.h"
-typedef struct co2_data_t {
+ struct co2_data_t {
 	uint16_t co2_data_value;
 	bool is_corrupt_data;
 };

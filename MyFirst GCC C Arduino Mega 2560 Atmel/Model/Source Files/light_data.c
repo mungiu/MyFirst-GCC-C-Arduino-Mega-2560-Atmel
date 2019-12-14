@@ -6,7 +6,7 @@
 
 #include "..//Header Files/light_data.h"
 
-typedef struct light_data_t {
+ struct light_data_t {
 	uint16_t _fullRaw;
 	uint16_t _visibleRaw;
 	uint16_t _infraredRaw;
@@ -24,7 +24,7 @@ plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t 
 {
 	//we initialize the shared light mutex here so we have the priority inheritance
 	initializ_light_mutext();
-	plight_data light_data = (plight_data)pvPortMalloc(sizeof(light_data_t));
+	plight_data light_data = (plight_data)pvPortMalloc(sizeof(struct light_data_t));
 	if (light_data == NULL)
 	{
 		return NULL;
