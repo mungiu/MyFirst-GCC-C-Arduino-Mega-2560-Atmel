@@ -11,4 +11,4 @@ pco2_data get_co2_data_obj(pfinal_data_bundle self);
 plight_data get_light_data_obj(pfinal_data_bundle self);
 ptemp_hum_data get_temp_hum_data_obj(pfinal_data_bundle self);
 void destroy_final_data(pfinal_data_bundle self);
-void initialize_final_data_mutext();
+
