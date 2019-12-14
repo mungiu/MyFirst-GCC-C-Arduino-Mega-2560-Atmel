@@ -96,7 +96,7 @@ uint16_t get_fullRaw(plight_data fullRaw){
 	uint16_t fr = 0;
 	if (xSemaphoreTake(fullRaw->lightSharedMutex, portMAX_DELAY))
 	{
-		fr =fullRaw->_fullRaw
+		fr =fullRaw->_fullRaw;
 		xSemaphoreGive(fullRaw->lightSharedMutex);
 	}
 	return fr;
