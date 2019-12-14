@@ -18,8 +18,6 @@
 
 plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)
 {
-	//we initialize the shared light mutex here so we have the priority inheritance
-	lightSharedMutex = xSemaphoreCreateMutex();
 	plight_data light_data = (plight_data)pvPortMalloc(sizeof(struct light_data_t));
 	if (light_data == NULL)
 	{
@@ -31,8 +29,8 @@ plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t 
 		light_data->_visibleRaw = _visibleRaw;
 		light_data->_infraredRaw = _infraredRaw;
 		light_data->_lux = _lux;
-		
 		light_data->corrupt_data = corrupt_data;
+		//we initialize the shared light mutex here so we have the priority inheritance
 		light_data->lightSharedMutex = xSemaphoreCreateMutex();
 		
 		return light_data;
