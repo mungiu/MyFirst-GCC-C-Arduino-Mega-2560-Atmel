@@ -9,20 +9,7 @@
 	uint16_t temp_data_value;
 	uint16_t hum_data_value;
 	bool is_corrupt_data;
-};
-SemaphoreHandle_t temp_hum_SharedMutex;
-
-void initialize_temp_hum_mutext() {
-	temp_hum_SharedMutex = xSemaphoreCreateMutex();
-
-}
-
-
-typedef struct temp_hum_data_t {
-	uint16_t temp_data_value;
-	uint16_t hum_data_value;
-	bool is_corrupt_data;
-  SemaphoreHandle_t temp_hum_SharedMutex;
+	SemaphoreHandle_t temp_hum_SharedMutex;
 };
 
 
