@@ -40,9 +40,8 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
-    <avrtoolserialnumber>
-    </avrtoolserialnumber>
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J41800026120</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -57,28 +56,29 @@
     </com_atmel_avrdbg_tool_simulator>
     <avrtoolinterface>JTAG</avrtoolinterface>
     <custom>
-      <ToolOptions>
+      <ToolOptions xmlns="">
         <InterfaceProperties>
         </InterfaceProperties>
-        <InterfaceName>JTAG</InterfaceName>
+        <InterfaceName>
+        </InterfaceName>
       </ToolOptions>
-      <ToolType>custom</ToolType>
-      <ToolNumber>
+      <ToolType xmlns="">custom</ToolType>
+      <ToolNumber xmlns="">
       </ToolNumber>
-      <ToolName>Custom Programming Tool</ToolName>
+      <ToolName xmlns="">Custom Programming Tool</ToolName>
     </custom>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>0</JtagDbgClock>
+          <JtagDbgClock>1000000</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
-      <ToolNumber>J41800045838</ToolNumber>
+      <ToolNumber>J41800026120</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterfaceclock>0</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -328,9 +328,9 @@
     <None Include="Test\co2_test_main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Test\final_data_test_main.c">
+    <None Include="Test\minunit.h">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
