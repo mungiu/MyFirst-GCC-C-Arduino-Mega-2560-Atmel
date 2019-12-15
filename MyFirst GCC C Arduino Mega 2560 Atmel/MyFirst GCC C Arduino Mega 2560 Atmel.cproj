@@ -325,9 +325,9 @@
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
-    <None Include="Test\co2_test_main.c">
+    <Compile Include="Test\co2_test_main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>

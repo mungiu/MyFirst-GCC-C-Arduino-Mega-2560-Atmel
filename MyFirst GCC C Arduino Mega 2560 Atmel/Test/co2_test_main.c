@@ -7,7 +7,7 @@
 //Includes for testing co2 model
 #include "../Model/Header Files/co2_data.h"
 //includes for testing co2 sensor
-#include "Controller/Co2Sensor.h"
+#include "../Controller/Co2Sensor.h"
 //co2 sensor
 #include <mh_z19.h>
 //co2 model struct
