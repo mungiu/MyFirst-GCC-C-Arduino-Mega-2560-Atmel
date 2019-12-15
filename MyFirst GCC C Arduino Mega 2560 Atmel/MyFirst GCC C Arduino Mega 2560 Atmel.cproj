@@ -40,8 +40,9 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800045838</avrtoolserialnumber>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber>
+    </avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -56,21 +57,20 @@
     </com_atmel_avrdbg_tool_simulator>
     <avrtoolinterface>JTAG</avrtoolinterface>
     <custom>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceProperties>
         </InterfaceProperties>
-        <InterfaceName>
-        </InterfaceName>
+        <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
-      <ToolType xmlns="">custom</ToolType>
-      <ToolNumber xmlns="">
+      <ToolType>custom</ToolType>
+      <ToolNumber>
       </ToolNumber>
-      <ToolName xmlns="">Custom Programming Tool</ToolName>
+      <ToolName>Custom Programming Tool</ToolName>
     </custom>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>3296423</JtagDbgClock>
+          <JtagDbgClock>0</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
@@ -78,7 +78,7 @@
       <ToolNumber>J41800045838</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterfaceclock>3296423</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>0</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -319,21 +319,18 @@
     <None Include="SensorTask.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Model\test_model.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="Test\co2Test.c">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Test\co2Test.h">
-      <SubType>compile</SubType>
-    </None>
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
+    <None Include="Test\co2_test_main.c">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="Test\final_data_test_main.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -421,9 +418,9 @@
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\src\variantHooks.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
+    <None Include="main.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\.gitignore">
       <SubType>compile</SubType>
     </None>
