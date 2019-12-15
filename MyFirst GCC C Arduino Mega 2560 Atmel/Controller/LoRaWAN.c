@@ -117,20 +117,17 @@ void lora_handler_task( void* pvParameters )
 	contrlEvtGrp = (EventGroupHandle_t) pvParameters;
 	static e_LoRa_return_code_t rc;
 	
-	// REMOVE THIS FALSE ///////////////////////////////////////////////////////////////////////////////////////// REMOVE THIS FALSE 
-	if(false)
-	{
-		// Hardware reset of LoRaWAN transceiver
-		lora_driver_reset_rn2483(1);
-		vTaskDelay(2);
-		lora_driver_reset_rn2483(0);
-		vTaskDelay(150);				// Give it a chance to wakeup
-		lora_driver_flush_buffers();	// get rid of first version string from module after reset!
-		_lora_setup();
+	// Hardware reset of LoRaWAN transceiver
+	lora_driver_reset_rn2483(1);
+	vTaskDelay(2);
+	lora_driver_reset_rn2483(0);
+	vTaskDelay(150);				// Give it a chance to wakeup
+	lora_driver_flush_buffers();	// get rid of first version string from module after reset!
+	_lora_setup();
 
-		_uplink_payload.len = 6;
-		_uplink_payload.port_no = 2;
-	}
+	_uplink_payload.len = 8;
+	_uplink_payload.port_no = 2;
+
 	
 	for(;;)
 	{
@@ -153,36 +150,45 @@ void lora_handler_task( void* pvParameters )
 		print_light_data(data_light);
 		print_temp_hum_data(data_temp_hum);
 
-		if(false){
 
-			//-------------
-			/*Send data to Lorawan part*/
-			
-			/*Interesting - We could use these flags from the sensors to denote if a new value was written to the modelstruct to be extracted or not if the sensor is hanging. Forward the flag from the controller instead of clearing it immidiately. then after the lorawantask has signaled finish to the controller then controller clears the flags just before gooing to sleep.*/
-			// Masking out the bits that we are interested in and checking their values against expected values
-			
-			vTaskDelay(pdMS_TO_TICKS(5000UL)); // TODO Investigate this task delay amount
-			
-			// Some dummy payload
-			uint16_t hum = 12345; // Dummy humidity
-			int16_t temp = 675; // Dummy temp
-			uint16_t co2_ppm = 1050; // Dummy CO2
-			
-			
-			// TODO: replace dummy values with getMethods from Model classes
-			_uplink_payload.bytes[0] = hum >> 8;		// keeping the last 8 bits
-			_uplink_payload.bytes[1] = hum & 0xFF;		// keeping the first 8 bits
-			_uplink_payload.bytes[2] = temp >> 8;
-			_uplink_payload.bytes[3] = temp & 0xFF;
-			_uplink_payload.bytes[4] = co2_ppm >> 8;
-			_uplink_payload.bytes[5] = co2_ppm & 0xFF;
-			_uplink_payload.bytes[6] = uxBits;			// the byte which describes which sensors have hung
-			
-			
-			led_short_puls(led_ST4);  // OPTIONAL
-			printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(		lora_driver_sent_upload_message(false, &_uplink_payload)));
-			
-		}
+		//-------------
+		/*Send data to Lorawan part*/
+		
+		/*Interesting - We could use these flags from the sensors to denote if a new value was written to the modelstruct to be extracted or not if the sensor is hanging. Forward the flag from the controller instead of clearing it immidiately. then after the lorawantask has signaled finish to the controller then controller clears the flags just before gooing to sleep.*/
+		// Masking out the bits that we are interested in and checking their values against expected values
+		
+		vTaskDelay(pdMS_TO_TICKS(5000UL)); // TODO Investigate this task delay amount
+		
+		// Some dummy payload
+		uint16_t hum = 12345; // Dummy humidity
+		int16_t temp = 675; // Dummy temp
+		uint16_t co2_ppm = 1050; // Dummy CO2
+		
+		
+		//// TODO: replace dummy values with getMethods from Model classes
+		//_uplink_payload.bytes[0] = hum >> 8;		// keeping the last 8 bits
+		//_uplink_payload.bytes[1] = hum & 0xFF;		// keeping the first 8 bits
+		//_uplink_payload.bytes[2] = temp >> 8;
+		//_uplink_payload.bytes[3] = temp & 0xFF;
+		//_uplink_payload.bytes[4] = co2_ppm >> 8;
+		//_uplink_payload.bytes[5] = co2_ppm & 0xFF;
+		//_uplink_payload.bytes[6] = uxBits;			// the byte which describes which sensors have hung
+		
+		// TODO: replace dummy values with getMethods from Model classes
+		_uplink_payload.bytes[0] = get_hum_data(data_temp_hum) >> 8;		// keeping the last 8 bits
+		_uplink_payload.bytes[1] = get_hum_data(data_temp_hum) & 0xFF;		// keeping the first 8 bits
+		_uplink_payload.bytes[2] = get_temp_data(data_temp_hum) >> 8;
+		_uplink_payload.bytes[3] = get_temp_data(data_temp_hum) & 0xFF;
+		_uplink_payload.bytes[4] = get_co2_data(data_co2) >> 8;
+		_uplink_payload.bytes[5] = get_co2_data(data_co2) & 0xFF;
+		_uplink_payload.bytes[6] = get_infraredRaw(data_light) & 0xFF;
+		_uplink_payload.bytes[7] = uxBits;			// the byte which describes which sensors have hung
+		
+		
+		led_short_puls(led_ST4);  // OPTIONAL
+		printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(		lora_driver_sent_upload_message(false, &_uplink_payload)));
+		
+		
 		
 		puts("Controller sleeps - Delay until next measurement");
 		vTaskDelayUntil(&xTimeOnEntering, 5000/portTICK_PERIOD_MS);
