@@ -116,7 +116,10 @@ void lora_handler_task( void* pvParameters )
 	EventGroupHandle_t contrlEvtGrp;
 	contrlEvtGrp = (EventGroupHandle_t) pvParameters;
 	static e_LoRa_return_code_t rc;
-	if(false){
+	
+	// REMOVE THIS FALSE ///////////////////////////////////////////////////////////////////////////////////////// REMOVE THIS FALSE 
+	if(false)
+	{
 		// Hardware reset of LoRaWAN transceiver
 		lora_driver_reset_rn2483(1);
 		vTaskDelay(2);
@@ -140,7 +143,7 @@ void lora_handler_task( void* pvParameters )
 		puts("Controller gave sensor signal semaphores");
 		
 		// THIS IS 5 SECONDS = "5000/portTICK_PERIOD_MS"
-		TickType_t maxDelaySensor = 5000/portTICK_PERIOD_MS; // portTICK_PERIOD represent a ratio between tick and milisecond provided by this instance of FreeRTOS
+		TickType_t maxDelaySensor = 5000/portTICK_PERIOD_MS; // portTICK_PERIOD represent a ratio between tick and millisecond provided by this instance of FreeRTOS
 		// wait to take semaphores back when available
 		EventBits_t uxBits = xEventGroupWaitBits(contrlEvtGrp, 0b01110000, /*clear bits after wait*/ pdTRUE, /*wait for all bits AND logic not OR*/ pdTRUE, maxDelaySensor);
 		puts("Controller took sensor result semaphores");
