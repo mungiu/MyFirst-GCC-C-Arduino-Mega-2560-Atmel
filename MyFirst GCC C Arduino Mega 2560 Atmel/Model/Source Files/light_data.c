@@ -7,7 +7,7 @@
 #include "..//Header Files/light_data.h"
 
 
- struct light_data_t {
+struct light_data_t {
 	uint16_t _fullRaw;
 	uint16_t _visibleRaw;
 	uint16_t _infraredRaw;
@@ -84,14 +84,15 @@ void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visible
 
 /*uint16_t get_light_data(plight_data light_data)
 {
-	uint16_t ldata = 0;
-	if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
-	{
-		ldata = light_data->;
-		xSemaphoreGive(lightSharedMutex);
-	}
-	return ldata;
+uint16_t ldata = 0;
+if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
+{
+ldata = light_data->;
+xSemaphoreGive(lightSharedMutex);
+}
+return ldata;
 }*/
+
 uint16_t get_fullRaw(plight_data fullRaw){
 	uint16_t fr = 0;
 	if (xSemaphoreTake(fullRaw->lightSharedMutex, portMAX_DELAY))
@@ -101,6 +102,7 @@ uint16_t get_fullRaw(plight_data fullRaw){
 	}
 	return fr;
 }
+
 uint16_t get_visibleRaw(plight_data visibleRaw){
 	uint16_t vr = 0;
 	if (xSemaphoreTake(visibleRaw->lightSharedMutex, portMAX_DELAY))
@@ -110,29 +112,31 @@ uint16_t get_visibleRaw(plight_data visibleRaw){
 	}
 	return vr;
 }
+
 uint16_t get_infraredRaw(plight_data infraredRaw){
-uint16_t ir = 0;
-if (xSemaphoreTake(infraredRaw->lightSharedMutex, portMAX_DELAY))
-{
-	ir = infraredRaw->_infraredRaw;
-	xSemaphoreGive(infraredRaw->lightSharedMutex);
+	uint16_t ir = 0;
+	if (xSemaphoreTake(infraredRaw->lightSharedMutex, portMAX_DELAY))
+	{
+		ir = infraredRaw->_infraredRaw;
+		xSemaphoreGive(infraredRaw->lightSharedMutex);
+	}
+	return ir;
 }
-return ir;
-}
+
 void print_light_data(plight_data light_data)
 {
 	if (xSemaphoreTake(light_data->lightSharedMutex, portMAX_DELAY)){
-	printf("LIGHT SENSOR INPUT _fullRaw: %d\n", light_data->_fullRaw);
-	printf("LIGHT SENSOR INPUT _visibleRaw: %d\n", light_data->_visibleRaw);
-	printf("LIGHT SENSOR INPUT _infraredRaw: %d\n", light_data->_infraredRaw);
-	printf("LIGHT SENSOR INPUT _lux: %f\n", light_data->_lux);
-	xSemaphoreGive(light_data->lightSharedMutex);
+		printf("LIGHT SENSOR INPUT _fullRaw: %d\n", light_data->_fullRaw);
+		printf("LIGHT SENSOR INPUT _visibleRaw: %d\n", light_data->_visibleRaw);
+		printf("LIGHT SENSOR INPUT _infraredRaw: %d\n", light_data->_infraredRaw);
+		printf("LIGHT SENSOR INPUT _lux: %f\n", light_data->_lux);
+		xSemaphoreGive(light_data->lightSharedMutex);
 	}
 }
 
 void destory_light_data(plight_data light_data)
 {
 	if (xSemaphoreTake(light_data->lightSharedMutex, portMAX_DELAY)){
-	vPortFree(light_data);
+		vPortFree(light_data);
 	}
 }
