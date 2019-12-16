@@ -92,5 +92,6 @@ void print_temp_hum_data(ptemp_hum_data temp_hum_data) {
 void destroy_temp_hum_data(ptemp_hum_data temp_hum_data) {
 	if (xSemaphoreTake(temp_hum_data->temp_hum_SharedMutex, portMAX_DELAY)) {
 	vPortFree(temp_hum_data);
+	temp_hum_data=NULL;
 	}
 }

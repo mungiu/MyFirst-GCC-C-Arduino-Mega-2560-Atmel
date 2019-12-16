@@ -4,12 +4,14 @@
 #include <semphr.h>
 #include <portmacro.h>
 #include "..//Header Files/co2_data.h"
-
+//declaration of co2 data type to create variables
+//three private fields
  struct co2_data_t {
-	uint16_t co2_data_value;
-	bool is_corrupt_data;
-  SemaphoreHandle_t co2ShareMutex;
+	uint16_t co2_data_value; //co2 value
+	bool is_corrupt_data; //true if co2 inputs is corropt
+  SemaphoreHandle_t co2ShareMutex; //semaphore handler for co2 mutex
 };
+//constructor to create co2_data type
 
 pco2_data create_co2_data(uint16_t co2_data_value, bool corrupt_data) {
 	pco2_data co2_data = (pco2_data)pvPortMalloc(sizeof(struct co2_data_t));
@@ -23,6 +25,9 @@ pco2_data create_co2_data(uint16_t co2_data_value, bool corrupt_data) {
 		return co2_data;
 	}
 }
+// set if the co2 data is corrupt or not but only if it has the semaphore.
+//after setting the boolean value, we give back the semaphore 
+//pco2_data: co2 data type
 
 void set_is_corrupt_data_c(pco2_data co2_data, bool is_corrupt_data) {
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
@@ -33,7 +38,7 @@ void set_is_corrupt_data_c(pco2_data co2_data, bool is_corrupt_data) {
 		//throw exception
 	}
 }
-
+//returns a  boolean
 bool get_is_corrupt_data_c(pco2_data co2_data) {
 	bool is_currupt = false;
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
@@ -52,15 +57,18 @@ void set_co2_data(pco2_data co2_data, uint16_t co2_data_value) {
 		xSemaphoreGive(co2_data->co2ShareMutex);
 	}
 }
-
+//Deallocate co2_data memory
 void destroy_co2_data(pco2_data co2_data) {
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
 	vPortFree(co2_data);
+co2_data=NULL;
+;
 	}
 }
 
+//returns an integer holding co2 value
 uint16_t get_co2_data(pco2_data co2_data) {
-	uint16_t c_data = 0;
+	uint16_t c_data = 0;//local variable that is then returned
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
 		c_data = co2_data->co2_data_value;
 		xSemaphoreGive(co2_data->co2ShareMutex);

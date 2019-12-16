@@ -28,6 +28,9 @@
 };
 //declaration of final data pointer
 pfinal_data_bundle finalData = NULL; 
+	pco2_data co2=NULL;
+	plight_data light=NULL;
+	ptemp_hum_data temp_hum=NULL;
 
 
 //counts number of test performed
@@ -41,16 +44,16 @@ static char * test_foo() {
 	MU_ASSERT("error, foo != 7", foo == 7);
 	return 0;
 }
-//
-////testing co2 model get method
-//char* test_get_light_obj() {
-	//pco2_data co2=NULL;
-	//plight_data light=create_light_data(3,5,2,5,false);
-	//ptemp_hum_data temp_hum=NULL;
-	//finalData = create_final_data_bundle(light, co2, temp_hum);
-	//MU_ASSERT("light obj:", light == get_light_data_obj(light));
-	//return 0;
-//}
+
+//testing co2 model get method
+char* test_get_light_obj() {
+co2=create_co2_data(12,true);
+ light=create_light_data(3,5,2,5,false);
+ temp_hum=create_temp_hum_data(30,20,false);
+	finalData = create_final_data_bundle(light, co2, temp_hum);
+	MU_ASSERT("light obj:", light == get_light_data_obj(light));
+	return 0;
+}
 //char* test_get_co2_obj() {
 	//pco2_data co2=create_co2_data(12,true);
 	//plight_data light=NULL;
@@ -93,7 +96,7 @@ static char * test_foo() {
 
 static char * all_tests() {
 		MU_RUN_TEST(test_foo);
-		//MU_RUN_TEST(test_get_light_obj);
+		MU_RUN_TEST(test_get_light_obj);
 		//MU_RUN_TEST(test_get_co2_obj);
 		//MU_RUN_TEST(test_get_temp_hum_obj);
 	return 0;

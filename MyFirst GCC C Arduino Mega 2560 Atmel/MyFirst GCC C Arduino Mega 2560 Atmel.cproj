@@ -194,9 +194,9 @@
     <None Include="IoT_SEP4\README.md">
       <SubType>compile</SubType>
     </None>
-    <None Include="main.c.old">
+    <Compile Include="main.c.old">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
@@ -326,15 +326,15 @@
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
-    <None Include="Test\co2_test_main.c">
+    <Compile Include="Test\co2_test_main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Test\final_data_test_main.c">
+    <None Include="Test\final_data_test_main.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
