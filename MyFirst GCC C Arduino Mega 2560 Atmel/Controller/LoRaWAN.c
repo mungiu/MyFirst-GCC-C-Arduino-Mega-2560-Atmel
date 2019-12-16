@@ -2,7 +2,7 @@
 * loraWAN.c
 *
 * Created: 12/2/2019 9:40:49 PM
-*  Author: andre
+* Author: Andrei
 * This class has been created with the help of an IoT device interface provided at this link: https://ihavn.github.io/IoT_Semester_project/lora_driver_quickstart.html
 */
 
@@ -15,25 +15,25 @@
 #include "..//Model/Header Files/light_data.h"
 #include "..//Model/Header Files/co2_data.h"
 
-// Parameters for OTAA join - You have got these in a mail from IHA
+// Credentials for OTA join (From Ib)
 #define LORA_appEUI "1990c988b325074e"
 #define LORA_appKEY "056881b45efe457a59b22d75cb469b14"
 
 TickType_t xTimeOnEntering;
 static char _out_buf[100];
-void lora_handler_task( void* pvParameters );
+void lora_handler_task(void* pvParameters);
 static lora_payload_t _uplink_payload;
 
-// Creates a Task which will be responsible for launching the LoRaWAN module.
+// A method responsible for creating a LoRaWAN Handler Task
 void lora_handler_create(UBaseType_t lora_handler_task_priority, EventGroupHandle_t xCreatedEventGroup)
 {
 	xTaskCreate(
-	lora_handler_task
-	,  (const portCHAR *)"LRHand"		// A name just for humans
-	,  configMINIMAL_STACK_SIZE+200		// This stack size can be checked & adjusted by reading the Stack Highwater
-	,  xCreatedEventGroup				// pass the event group as a parameter
-	,  lora_handler_task_priority		// Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-	,  NULL );
+	lora_handler_task,
+	(const portCHAR *)"LRHand",      // A name just for humans
+	configMINIMAL_STACK_SIZE+200,    // This stack size can be checked & adjusted by reading the Stack Highwater
+	xCreatedEventGroup,		         // pass the event group as a parameter
+	lora_handler_task_priority,		 // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+	NULL );
 }
 
 // LoRaWan driver setup with active feedback.
