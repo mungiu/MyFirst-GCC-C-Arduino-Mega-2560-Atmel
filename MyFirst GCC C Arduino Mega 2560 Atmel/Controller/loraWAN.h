@@ -3,7 +3,7 @@
  * \authors Andrei Mungiu, Jakub Duchon, Jeppe Graasbøll Jensen, Maria Louisa Failli
  * \version 1.0.0
  *
- * \defgroup controllers Controllers for sensors and modules
+ * \defgroup lorawan_controller Controller for the LoRaWAN module
  * \brief This file contains a method responsible for creating a LoRaWAN Handler Task
  */
 
@@ -14,7 +14,6 @@
 #include <event_groups.h>		
 #include <lora_driver.h>
 
-// Creates a Task which will be responsible for launching the LoRaWAN module.
 /**
  * \ingroup controllers
  * \brief A method responsible for creating a LoRaWAN Handler Task
