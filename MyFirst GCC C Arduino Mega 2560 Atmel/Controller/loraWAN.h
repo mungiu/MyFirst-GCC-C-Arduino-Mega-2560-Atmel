@@ -13,5 +13,5 @@
 #include <lora_driver.h>
 
 
-
+// Creates a Task which will be responsible for launching the LoRaWAN module.
 void lora_handler_create( UBaseType_t lora_handler_task_priority, EventGroupHandle_t xCreatedEventGroup );
