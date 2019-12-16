@@ -15,7 +15,7 @@
 #include <lora_driver.h>
 
 /**
- * \ingroup controllers
+ * \ingroup lorawan_controller
  * \brief A method responsible for creating a LoRaWAN Handler Task
  *
  * A method creating a LoRaWAN Handler Task. The task is responsible for all features of the LoRaWAN module;
