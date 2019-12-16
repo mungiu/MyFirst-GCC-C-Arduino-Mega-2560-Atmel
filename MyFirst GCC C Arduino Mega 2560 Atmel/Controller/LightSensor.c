@@ -21,15 +21,13 @@ plight_data data_light;
 #include <tsl2591.h>
 
 //Functions and variables must be declared before use for this C compiler to see them
-void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
+void tsl2591Callback(tsl2591ReturnCode_t rc);
 
-void getLightSensorMeasurement2() {
-puts("Hi from light");}
-
+/*Doxygen: Reads a measurement from the light sensor tsl2591. The driver must be initialized before the method call.*/
 void getLightSensorMeasurement() {
 	puts("Hi from light");
 	
-	//enable light sensor
+	//enable light sensor - This powers up the light sensor.
 	if ( TSL2591_OK == tsl2591Enable() )
 	{
 		// The power up command is now send to the sensor - it can be powered down with a call to tsl2591Disable()
@@ -39,7 +37,7 @@ void getLightSensorMeasurement() {
 	
 	_delay_ms(250);
 	
-	/*Try sensor driver*/
+	/*Tries to take a measurement from the from the light sensor tsl2591. After the measuremnt is taken there is a small delay for the callback function to be called*/
 	if ( TSL2591_OK != tsl2591FetchData() )
 	{
 		// Something went wrong
@@ -52,9 +50,14 @@ void getLightSensorMeasurement() {
 	
 };
 
-
+/*Doxygen: Callback function to to called from the driver interface. The measurement value is saved to shared abstract data type to be accessed from other parts of the code.
+\variable: data_light. A pointer to the shared data instance
+\Variable x4, _fullRaw, _visibleRaw, _infraredRaw, _lux: Variables to store the return values from the driver interface.
+The values are later saved into the shared data instance data_light*/
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 {
+	/*Variables to store the return values from the driver interface.
+	 The values are saved into the shared data instance data_light after they have been retrieved*/
 	uint16_t _fullRaw;
 	uint16_t _visibleRaw;
 	uint16_t _infraredRaw;
@@ -91,9 +94,7 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 
 		if ( TSL2591_OK == (rc = tsl2591GetLux(&_lux)) )
 		{
-			//something is wrong with the formatter when using floating print format ex. %5.4f. Even when using syntax from the Internet or Ib s example. Using hex format to verify sensor response.
 			printf("Lux: %08d\n", _lux);
-			//printf("Lux: %5.4f\n", _lux);
 		}
 		else if( TSL2591_OVERFLOW == rc )
 		{
@@ -104,7 +105,7 @@ void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 		{
 			// If last command performed successful then
 			// save to struct.
-			//data_light = create_light_data(_fullRaw, _visibleRaw, _infraredRaw, _lux, false);
+			
 			set_light_data(data_light,_fullRaw,_visibleRaw,_infraredRaw,_lux);
 			set_is_corrupt_data(data_light,false);
 		}
