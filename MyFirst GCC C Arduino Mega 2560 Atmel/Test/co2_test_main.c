@@ -1,82 +1,84 @@
- //* Created: 14/12/2019 22:58:10
- //*  Author: maria
- //*/ 
+ /*
+ * co2_test_main.c
+ *
+ * Created: 14/12/2019 22:58:10
+ *  Author: maria
+ */ 
 #include <stdio.h>
-//Minunit Test header
+//--------------------MINUNIT---------------------------//
 #include "minunit.h"
-//Includes for testing co2 model
+//--------------Model header files---------------------//
 #include "../Model/Header Files/co2_data.h"
-//includes for testing co2 sensor
-#include "../Controller/Co2Sensor.h"
-//co2 sensor
-#include <mh_z19.h>
-//co2 model struct
- struct co2_data_t {
-	uint16_t co2_data_value;
-	bool is_corrupt_data;
-};
-//declaration of co2 pointer
-pco2_data co2_Data = NULL; 
-//co2 sensor return value
-uint16_t ppmReturn_;
-mh_z19_return_code_t rc_;
+#include "../Model/Header Files/light_data.h"
+#include "../Model/Header Files/temp_hum_data.h"
 
+
+
+plight_data light_Data = NULL;
+pco2_data co2_Data = NULL; 
+ptemp_hum_data temp_hum=NULL;
 //counts number of test performed
 tests_run = 0;
-//Random tests variables made to test test setup
-int foo = 7;
-int bar = 5;
-
-
 //Random tests methods made to test test setup
-static char * test_foo() {
-	MU_ASSERT("error, foo != 7", foo == 7);
-	return 0;
-}
-
 static char * test_bar() {
+	int bar = 5;
 	MU_ASSERT("error, bar != 5", bar == 5);
 	return 0;
 }
-//testing co2 model get method
+//test get_co2_value
 char* test_get_co2_data_value() {
 	co2_Data = create_co2_data(32, false);
 	MU_ASSERT("get_co2_data_value:", 32 == get_co2_data(co2_Data));
 	return 0;
 }
+
+char* test_set_co2_value(){
+		co2_Data = create_co2_data(12, false);
+		set_co2_data(co2_Data,10);
+		MU_ASSERT("co2_ value:", 10 == get_co2_data(co2_Data));
+
+}
 char* test_null_co2_obj(){
-	
-vPortFree(co2_Data);	
 	co2_Data = NULL;
 	MU_ASSERT("co2 null:", NULL == co2_Data);
 	return 0;
 }
-char* test_destroy_co2_obj(){
-	////	co2_Data = (pco2_data)malloc(sizeof( struct co2_data_t)); //allocate memory to co2 object
 
-	//co2_Data = create_co2_data(12, false);
-	//destroy_co2_data(co2_Data);
-	//MU_ASSERT("destroy co2:", NULL == co2_Data);
+char* test_create_light_and_get_fullRaw(){
+	light_Data=create_light_data(12,23,12,23,false);
+	MU_ASSERT("light obj", 12==get_fullRaw(light_Data));
 	return 0;
 }
+char* test_set_light_infrared(){
+	light_Data=create_light_data(12,23,12,23,false);
+	set_light_data(light_Data,10,10,10,19);
+	MU_ASSERT("light infrared",0!= get_infraredRaw(light_Data));
+return 0;
+	
+}
 
-char* test_getCo2SensorMeasurement(){
-	ppmReturn_=0;
-	//MU_ASSERT("ppm return:")
+char* test_create_tempHum_and_get_hum(){
+	temp_hum=create_temp_hum_data(35,900,false);
+	MU_ASSERT("temperature:", 900==get_hum_data(temp_hum));
 	return 0;
 }
-char*  test_get_my_co2_call_back(){
+char* test_create_tempHum_and_get_temp(){
+	temp_hum=create_temp_hum_data(29,700,false);
+	MU_ASSERT("temperature:", 29==get_temp_data(temp_hum));
 	return 0;
 }
 static char * all_tests() {
-	MU_RUN_TEST(test_foo);
+
 		MU_RUN_TEST(test_bar);
 		MU_RUN_TEST(test_get_co2_data_value);
 		MU_RUN_TEST(test_null_co2_obj);
-		MU_RUN_TEST(test_destroy_co2_obj);
-		MU_RUN_TEST(test_get_my_co2_call_back);
-		MU_RUN_TEST(test_getCo2SensorMeasurement);
-	return 0;
+		MU_RUN_TEST(test_set_co2_value);
+		MU_RUN_TEST(test_create_light_and_get_fullRaw);
+		MU_RUN_TEST(test_set_light_infrared);
+		MU_RUN_TEST(test_create_tempHum_and_get_temp);
+		MU_RUN_TEST(test_create_tempHum_and_get_hum);
+		
+		return 0;
 }
 
 

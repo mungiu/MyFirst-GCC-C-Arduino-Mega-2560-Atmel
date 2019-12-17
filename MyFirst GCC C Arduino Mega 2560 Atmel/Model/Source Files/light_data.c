@@ -15,10 +15,11 @@ struct light_data_t {
 	float _lux;
 	bool corrupt_data;
 	SemaphoreHandle_t lightSharedMutex;
-}light_data_t;
+};
 //constructor to create light_data type
 plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)
-{//light_data  memory allocation
+{
+	//light_data  memory allocation
 	//pvPortMalloc ensures it is thread safe
 	plight_data light_data = (plight_data)pvPortMalloc(sizeof(struct light_data_t));
 	if (light_data == NULL)
@@ -135,3 +136,4 @@ void destory_light_data(plight_data light_data)
 		light_data=NULL;
 	}
 }
+

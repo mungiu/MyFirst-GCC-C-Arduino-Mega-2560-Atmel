@@ -66,7 +66,7 @@ void destroy_co2_data(pco2_data co2_data) {
 	if (xSemaphoreTake(co2_data->co2ShareMutex, portMAX_DELAY)) {
 	vPortFree(co2_data);
 co2_data=NULL;
-;
+
 	}
 }
 
