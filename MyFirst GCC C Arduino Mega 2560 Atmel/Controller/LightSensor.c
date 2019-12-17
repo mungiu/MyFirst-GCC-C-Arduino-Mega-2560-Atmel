@@ -23,11 +23,9 @@ plight_data data_light;
 //Functions and variables must be declared before use for this C compiler to see them
 void tsl2591Callback(tsl2591ReturnCode_t rc);
 
-/*Doxygen: Reads a measurement from the light sensor tsl2591. The driver must be initialized before the method call.*/
 void getLightSensorMeasurement() {
 	puts("Hi from light");
 	
-	//enable light sensor - This powers up the light sensor.
 	if ( TSL2591_OK == tsl2591Enable() )
 	{
 		// The power up command is now send to the sensor - it can be powered down with a call to tsl2591Disable()
@@ -50,10 +48,6 @@ void getLightSensorMeasurement() {
 	
 };
 
-/*Doxygen: Callback function to to called from the driver interface. The measurement value is saved to shared abstract data type to be accessed from other parts of the code.
-\variable: data_light. A pointer to the shared data instance
-\Variable x4, _fullRaw, _visibleRaw, _infraredRaw, _lux: Variables to store the return values from the driver interface.
-The values are later saved into the shared data instance data_light*/
 void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/)
 {
 	/*Variables to store the return values from the driver interface.

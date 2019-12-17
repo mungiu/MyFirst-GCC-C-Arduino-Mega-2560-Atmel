@@ -1,16 +1,32 @@
-/*
- * LightSensor.h
+/**
+ * \file
+ * \authors Andrei Mungiu, Jakub Duchon, Jeppe Graasbøll Jensen, Maria Louisa Failli
+ * \version 1.0.0
  *
- * Created: 06-12-2019 18:14:49
- *  Author: peJep
- */ 
-
+ * \defgroup lightsensor_controller Controller for the light sensor
+ * \brief This file contains function responsible for getting measurements from the sensor and saving them in a struct
+ */
 
 #ifndef LIGHTSENSOR_H_
 #define LIGHTSENSOR_H_
 
+/**
+ * \ingroup lightsensor_controller
+ * \brief A function responsible for getting measurements from the sensor
+ *
+ * Reads a measurement from the light sensor tsl2591. The driver must be initialized before the method call.
+ *
+ */
+
 void getLightSensorMeasurement();
-void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
+
+/**
+ * \ingroup lightsensor_controller
+ * \brief A callback function responsible for saving measurements to a struct
+ *
+ * \param[in] rc return code
+ */
+void tsl2591Callback(tsl2591ReturnCode_t rc);
 
 
 

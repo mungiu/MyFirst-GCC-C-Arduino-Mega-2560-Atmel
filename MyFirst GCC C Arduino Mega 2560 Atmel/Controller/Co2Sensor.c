@@ -28,8 +28,6 @@ mh_z19_return_code_t rc;
 
 void my_co2_call_back(uint16_t ppm);
 
-/*Doxygen: Reads a measurement from the co2 sensor mh_z19. The driver must be initialized before the method call.
-\Variable ppmReturn: Hold the return value of the co2 measurement*/
 void getCo2SensorMeasurement() {
 	puts("Hi from co2");
 	
@@ -52,8 +50,6 @@ void getCo2SensorMeasurement() {
 	
 };
 
-/*Doxygen: Callback function to to called from the driver interface. The measurement value is saved to shared abstract data type to be accessed from other parts of the code.
-\variable: data_co2. A pointer to the shared data instance*/
 void my_co2_call_back(uint16_t ppm)
 {
 	//save co2 ppm value

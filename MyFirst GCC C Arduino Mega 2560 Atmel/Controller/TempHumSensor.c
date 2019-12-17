@@ -26,10 +26,7 @@ ptemp_hum_data data_temp_hum;
 float humidity;
 float temperature;
 
-/*Doxygen: Reads a measurement from the temperature and humidity sensor hih8120. The driver must be initialized before the method call.
-\variable: data_temp_hum - pointer to the shared data instance
-\Variable x2 humidity, temperature: Variables to store the return values from the driver interface. 
-The values are later saved into the shared data instance data_temp_hum*/
+
 void getTemperatureHumiditySensorMeasurement() {
 	puts("Hi from temperatureHumidity");
 		
