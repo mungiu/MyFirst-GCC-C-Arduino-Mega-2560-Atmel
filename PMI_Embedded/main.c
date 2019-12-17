@@ -24,6 +24,10 @@
 
 //---Model---//
 #include "Model/shared_variables.h"
+#include "Model/Header Files/final_data_bundle.h"
+#include "Model/Header Files/temp_hum_data.h"
+#include "Model/Header Files/light_data.h"
+#include "Model/Header Files/co2_data.h"
 
 //---Task---//
 #include "Controller/loraWAN.h"
@@ -54,8 +58,6 @@ EventGroupHandle_t contrlEvtGrp = NULL;
 TickType_t xTimeOnEntering;
 
 // --------------------------------------------------------------------------------------
-/*Doxygen: CO2 sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
 void taskMyCo2SensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.
@@ -71,8 +73,6 @@ void taskMyCo2SensorTask(void* pvParameters)
 }
 
 // --------------------------------------------------------------------------------------
-/*Doxygen: Light sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
 void taskLightSensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.
@@ -88,8 +88,6 @@ void taskLightSensorTask(void* pvParameters)
 }
 
 // --------------------------------------------------------------------------------------
-/*Doxygen: Temperature humidity sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
 void taskMyHumiditySensorTask(void* pvParameters)
 {
 	// Remove compiler warnings.

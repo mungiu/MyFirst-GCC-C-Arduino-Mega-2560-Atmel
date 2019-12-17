@@ -13,7 +13,7 @@
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AssemblyName>MyFirst GCC C Arduino Mega 2560 Atmel</AssemblyName>
-    <Name>MyFirst GCC C Arduino Mega 2560 Atmel</Name>
+    <Name>PMI_Embedded</Name>
     <RootNamespace>MyFirst GCC C Arduino Mega 2560 Atmel</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
@@ -40,9 +40,8 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
-    <avrtoolserialnumber>
-    </avrtoolserialnumber>
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J41800026120</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9801</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
@@ -71,7 +70,7 @@
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>0</JtagDbgClock>
+          <JtagDbgClock>1000000</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
@@ -79,7 +78,7 @@
       <ToolNumber>J41800026120</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterfaceclock>0</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -194,9 +193,9 @@
     <None Include="IoT_SEP4\README.md">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="main.c.old">
+    <None Include="main.c.old">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\Example\main.c">
       <SubType>compile</SubType>
     </None>
@@ -224,6 +223,15 @@
     <Compile Include="Controller\TempHumSensor.h">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="IndividualSensor\Co2Sensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\LightSensor.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="IndividualSensor\TempHumSensor.c">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="IoT_SEP4\display_7seg.h">
       <SubType>compile</SubType>
     </Compile>
@@ -284,6 +292,9 @@
     <Compile Include="Model\Header Files\co2_data.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Model\Header Files\final_data_bundle.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Model\Header Files\light_data.h">
       <SubType>compile</SubType>
     </Compile>
@@ -294,6 +305,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Model\Source Files\co2_data.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Model\Source Files\final_data_bundle.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Model\Source Files\light_data.c">
@@ -308,12 +322,9 @@
     <Compile Include="SensorTask.h">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="Test\minunit.h">
+    <None Include="Test\co2Test.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Test\co2_test_main.c">
-      <SubType>compile</SubType>
-    </Compile>
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
@@ -404,9 +415,9 @@
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\src\variantHooks.c">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="main.c">
+    <Compile Include="main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="VIA_FreeRTOS_AVRMEGA-master\.gitignore">
       <SubType>compile</SubType>
     </None>
@@ -429,6 +440,7 @@
     <Folder Include="IoT_SEP4\example\" />
     <Folder Include="Model" />
     <Folder Include="Controller" />
+    <Folder Include="IndividualSensor" />
     <Folder Include="Model\Header Files\" />
     <Folder Include="Model\Source Files\" />
     <Folder Include="Test\" />
