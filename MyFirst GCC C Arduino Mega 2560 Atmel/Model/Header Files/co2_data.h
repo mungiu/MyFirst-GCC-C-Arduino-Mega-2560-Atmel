@@ -57,8 +57,8 @@ bool get_is_corrupt_data_c(pco2_data co2_data);
  *
  * Acts as a setter; Sets values in a CO2 data struct (type).
  *
+ * \param[in] co2_data Pointer to a CO2 data struct
  * \param[in] co2_data_value Value of a measurement
- * \param[in] is_corrupt_data Boolean stating if a data are corrupted (were not read and/or written successfully)
  */
 void set_co2_data(pco2_data co2_data, uint16_t co2_data_value);
 
