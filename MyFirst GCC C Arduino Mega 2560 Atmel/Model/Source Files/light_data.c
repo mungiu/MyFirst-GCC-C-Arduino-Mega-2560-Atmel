@@ -6,7 +6,8 @@
 
 #include "..//Header Files/light_data.h"
 
-
+//declaration of light data type to create variables
+//three private fields
 struct light_data_t {
 	uint16_t _fullRaw;
 	uint16_t _visibleRaw;
@@ -14,10 +15,12 @@ struct light_data_t {
 	float _lux;
 	bool corrupt_data;
 	SemaphoreHandle_t lightSharedMutex;
-}light_data_t;
-
+};
+//constructor to create light_data type
 plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)
 {
+	//light_data  memory allocation
+	//pvPortMalloc ensures it is thread safe
 	plight_data light_data = (plight_data)pvPortMalloc(sizeof(struct light_data_t));
 	if (light_data == NULL)
 	{
@@ -36,6 +39,8 @@ plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t 
 		return light_data;
 	}
 }
+// set if the light data is corrupt or not but only if it has the semaphore.
+//after setting the boolean value, we give back the semaphore
 
 void set_is_corrupt_data(plight_data light_data, bool bool_corrupt_data)
 {
@@ -49,7 +54,7 @@ void set_is_corrupt_data(plight_data light_data, bool bool_corrupt_data)
 		//throw exception
 	}
 }
-
+//returns true if the light data is corrupt and false if it is not
 bool get_is_corrupt_data(plight_data light_data)
 {
 	bool is_currupt = false;
@@ -60,11 +65,11 @@ bool get_is_corrupt_data(plight_data light_data)
 	}
 	else
 	{
-		//throw exception
+	//we timed out 
 	}
 	return is_currupt;
 }
-
+//sets all 4 values of light sensor
 void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux)
 {
 	if (xSemaphoreTake(light_data->lightSharedMutex, portMAX_DELAY))
@@ -78,21 +83,11 @@ void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visible
 	}
 	else
 	{
-		//throw exception
+		//we timed out 
 	}
 }
 
-/*uint16_t get_light_data(plight_data light_data)
-{
-uint16_t ldata = 0;
-if (xSemaphoreTake(lightSharedMutex, portMAX_DELAY))
-{
-ldata = light_data->;
-xSemaphoreGive(lightSharedMutex);
-}
-return ldata;
-}*/
-
+//returns light fullRaw value
 uint16_t get_fullRaw(plight_data fullRaw){
 	uint16_t fr = 0;
 	if (xSemaphoreTake(fullRaw->lightSharedMutex, portMAX_DELAY))
@@ -102,7 +97,7 @@ uint16_t get_fullRaw(plight_data fullRaw){
 	}
 	return fr;
 }
-
+//returns light visibleRaw value
 uint16_t get_visibleRaw(plight_data visibleRaw){
 	uint16_t vr = 0;
 	if (xSemaphoreTake(visibleRaw->lightSharedMutex, portMAX_DELAY))
@@ -112,7 +107,7 @@ uint16_t get_visibleRaw(plight_data visibleRaw){
 	}
 	return vr;
 }
-
+//returns light infrared value
 uint16_t get_infraredRaw(plight_data infraredRaw){
 	uint16_t ir = 0;
 	if (xSemaphoreTake(infraredRaw->lightSharedMutex, portMAX_DELAY))
@@ -133,10 +128,12 @@ void print_light_data(plight_data light_data)
 		xSemaphoreGive(light_data->lightSharedMutex);
 	}
 }
-
+//Deallocate co2_data memory
 void destory_light_data(plight_data light_data)
 {
 	if (xSemaphoreTake(light_data->lightSharedMutex, portMAX_DELAY)){
 		vPortFree(light_data);
+		light_data=NULL;
 	}
 }
+
