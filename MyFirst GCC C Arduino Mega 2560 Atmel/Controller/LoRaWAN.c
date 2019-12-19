@@ -155,6 +155,8 @@ void lora_handler_task( void* pvParameters )
 		printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(		lora_driver_sent_upload_message(false, &_uplink_payload)));
 
 		puts("Controller sleeps - Delay until next measurement");
-		vTaskDelayUntil(&xTimeOnEntering, 5000/portTICK_PERIOD_MS);
+		
+		TickType_t measurementsInterval = 150000/portTICK_PERIOD_MS;
+		vTaskDelayUntil(&xTimeOnEntering, measurementsInterval);
 	}
 }
