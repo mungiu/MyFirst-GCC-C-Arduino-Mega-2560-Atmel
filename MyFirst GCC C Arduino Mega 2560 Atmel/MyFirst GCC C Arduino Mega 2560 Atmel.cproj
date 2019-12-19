@@ -311,12 +311,12 @@
     <None Include="Test\minunit.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Test\co2_test_main.c">
+    <Compile Include="Test\minunit.h">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="Test\minunit.h">
+    <Compile Include="Test\test_main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <Compile Include="VIA_FreeRTOS_AVRMEGA-master\FreeRTOSTraceDriver\FreeRTOSTraceDriver.c">
       <SubType>compile</SubType>
     </Compile>
