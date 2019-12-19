@@ -119,11 +119,13 @@ void lora_handler_task( void* pvParameters )
 
 	_uplink_payload.len = 8;
 	_uplink_payload.port_no = 2;
+	
+	//For timing next measurement initialization.
+	xTimeOnEntering = xTaskGetTickCount();
 
 	for(;;)
 	{
-		//For timing next measurement initialization.
-		xTimeOnEntering = xTaskGetTickCount();
+		
 		xEventGroupSetBits(contrlEvtGrp, 0b00000111);
 		puts("Controller gave sensor signal semaphores");
 
@@ -156,6 +158,8 @@ void lora_handler_task( void* pvParameters )
 
 		puts("Controller sleeps - Delay until next measurement");
 		
+		/*Note that conversion from ticks to milliseconds is of by about ~ 2/60. 2 seconds to much for each minute.
+		Error margin tested to be proportional delay: Measurement point: 60 seconds specified -> 62 delay, 150 seconds specified -> 155 seconds delay.*/
 		TickType_t measurementsInterval = 150000/portTICK_PERIOD_MS;
 		vTaskDelayUntil(&xTimeOnEntering, measurementsInterval);
 	}
