@@ -11,7 +11,7 @@
 
 void getCo2SensorMeasurement();
 void my_co2_call_back(uint16_t ppm);
-
+void createCo2Task();
 
 
 #endif /* CO2SENSOR_H_ */

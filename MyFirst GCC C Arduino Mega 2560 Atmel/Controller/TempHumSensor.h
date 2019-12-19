@@ -10,6 +10,7 @@
 #define TEMPHUMSENSOR_H_
 
 void getTemperatureHumiditySensorMeasurement();
+void createTempHumTask();
 
 
 

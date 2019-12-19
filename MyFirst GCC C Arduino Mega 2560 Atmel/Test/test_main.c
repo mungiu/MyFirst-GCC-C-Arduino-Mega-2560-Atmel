@@ -5,6 +5,7 @@
  *  Author: maria
  */ 
 #include <stdio.h>
+
 //--------------------MINUNIT---------------------------//
 #include "minunit.h"
 //--------------Model header files---------------------//
@@ -39,6 +40,8 @@ static char* test_set_co2_value(){
 		co2_value=200;
 		set_co2_data(co2_Data,co2_value);
 		MU_ASSERT("Error: co2_Data.co2_data_value!= 200 ", co2_value == get_co2_data(co2_Data));
+		
+		return 0;
 
 }
 char* test_null_co2_obj(){
