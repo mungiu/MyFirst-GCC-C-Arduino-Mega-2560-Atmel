@@ -22,8 +22,38 @@ ptemp_hum_data data_temp_hum;
 //Humidity Temperature sensor
 #include <hih8120.h>
 
+/*Declaration for task initialization*/
+TaskHandle_t _taskHumidityHandle = NULL;
+
 float humidity;
 float temperature;
+
+/*Doxygen: Temperature humidity sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
+\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
+void taskMyHumiditySensorTask(void* pvParameters)
+{
+	// Remove compiler warnings.
+	(void)pvParameters;
+
+	for (;;)
+	{
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000100, pdTRUE, pdTRUE, portMAX_DELAY);
+		vTaskDelay(1000/portTICK_PERIOD_MS);
+		getTemperatureHumiditySensorMeasurement();
+		xEventGroupSetBits(contrlEvtGrp, 0b01000000);
+	}
+}
+
+void createTempHumTask()
+{
+	xTaskCreate(
+	taskMyHumiditySensorTask,				/* Function that implements the task. */
+	"MyHumiditySensorTask",					/* Text name for the task. */
+	TASK_MY_HUMIDITY_TASK_STACK,		/* Stack size in words, not bytes. */
+	(void*)4,						/* Parameter passed into the task. */
+	HUMIDITY_TASK_PRIORITY,	/* Priority at which the task is created. */
+	&_taskHumidityHandle);				/* Used to pass out the created task's handle. */
+}
 
 /*Doxygen: Reads a measurement from the temperature and humidity sensor hih8120. The driver must be initialized before the method call.
 \variable: data_temp_hum - pointer to the shared data instance
