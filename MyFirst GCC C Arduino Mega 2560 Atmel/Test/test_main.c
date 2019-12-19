@@ -47,9 +47,9 @@ char* test_null_co2_obj(){
 	return 0;
 }
 
-char* test_create_light_and_get_fullRaw(){
+char* test_create_light_and_get_infrared(){
 	light_Data=create_light_data(12,23,12,23,false);
-	MU_ASSERT("error:  fullRaw!=23", 12 == get_fullRaw(light_Data));
+	MU_ASSERT("error:  infraredRaw!=23", 23 == get_infraredRaw(light_Data));
 	return 0;
 }
 char* test_set_light_infrared(){
@@ -76,7 +76,7 @@ static char * all_tests() {
 		MU_RUN_TEST(test_get_co2_data_value);
 		MU_RUN_TEST(test_null_co2_obj);
 		MU_RUN_TEST(test_set_co2_value);
-		MU_RUN_TEST(test_create_light_and_get_fullRaw);
+		MU_RUN_TEST(test_create_light_and_get_infrared);
 		MU_RUN_TEST(test_set_light_infrared);
 		MU_RUN_TEST(test_create_tempHum_and_get_temp);
 		MU_RUN_TEST(test_create_tempHum_and_get_hum);
