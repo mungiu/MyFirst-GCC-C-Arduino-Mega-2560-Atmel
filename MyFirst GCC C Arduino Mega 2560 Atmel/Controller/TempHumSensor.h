@@ -19,6 +19,7 @@
  * Reads a measurement from the temperature and humidity sensor hih8120. The driver must be initialized before the method call.
  */
 void getTemperatureHumiditySensorMeasurement();
+void createTempHumTask();
 
 
 #endif /* TEMPHUMSENSOR_H_ */

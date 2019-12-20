@@ -24,10 +24,6 @@
 
 //---Model---//
 #include "Model/shared_variables.h"
-#include "Model/Header Files/final_data_bundle.h"
-#include "Model/Header Files/temp_hum_data.h"
-#include "Model/Header Files/light_data.h"
-#include "Model/Header Files/co2_data.h"
 
 //---Task---//
 #include "Controller/loraWAN.h"
@@ -35,78 +31,15 @@
 #include "Controller/LightSensor.h"
 #include "Controller/Co2Sensor.h"
 
-/* Priorities at which the tasks are created. */
-#define LED_TASK_PRIORITY				( tskIDLE_PRIORITY + 2 ) /*Must be highest priority*/
-#define LORAWAN_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
-#define CO2_TASK_PRIORITY				( tskIDLE_PRIORITY + 1 )
-#define	LIGHT_TASK_PRIORITY				( tskIDLE_PRIORITY + 1 )
-#define	HUMIDITY_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
-
-/* Task stack sizes*/
-#define	TASK_MY_Co2_TASK_STACK		( configMINIMAL_STACK_SIZE )
-#define	TASK_MY_LIGHT_TASK_STACK		( configMINIMAL_STACK_SIZE )
-#define	TASK_MY_HUMIDITY_TASK_STACK		( configMINIMAL_STACK_SIZE )
-
-/* Task Handles */
-TaskHandle_t _taskCo2Handle = NULL;
-TaskHandle_t _taskLightHandle = NULL;
-TaskHandle_t _taskHumidityHandle = NULL;
+/*Declaration*/
 EventGroupHandle_t contrlEvtGrp = NULL;
 
-//declaration
-
-TickType_t xTimeOnEntering;
+// --------------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------------
-/*Doxygen: CO2 sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
-void taskMyCo2SensorTask(void* pvParameters)
-{
-	// Remove compiler warnings.
-	(void)pvParameters;
-
-	for (;;)
-	{
-		xEventGroupWaitBits(contrlEvtGrp, 0b00000001, pdTRUE, pdTRUE, portMAX_DELAY);
-		vTaskDelay(400/portTICK_PERIOD_MS);
-		getCo2SensorMeasurement();
-		xEventGroupSetBits(contrlEvtGrp, 0b00010000);
-	}
-}
 
 // --------------------------------------------------------------------------------------
-/*Doxygen: Light sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
-void taskLightSensorTask(void* pvParameters)
-{
-	// Remove compiler warnings.
-	(void)pvParameters;
 
-	for (;;)
-	{
-		xEventGroupWaitBits(contrlEvtGrp, 0b00000010, pdTRUE, pdTRUE, portMAX_DELAY);
-		vTaskDelay(700/portTICK_PERIOD_MS);
-		getLightSensorMeasurement();
-		xEventGroupSetBits(contrlEvtGrp, 0b00100000);
-	}
-}
-
-// --------------------------------------------------------------------------------------
-/*Doxygen: Temperature humidity sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
-\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
-void taskMyHumiditySensorTask(void* pvParameters)
-{
-	// Remove compiler warnings.
-	(void)pvParameters;
-
-	for (;;)
-	{
-		xEventGroupWaitBits(contrlEvtGrp, 0b00000100, pdTRUE, pdTRUE, portMAX_DELAY);
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-		getTemperatureHumiditySensorMeasurement();
-		xEventGroupSetBits(contrlEvtGrp, 0b01000000);
-	}
-}
 
 // --------------------------------------------------------------------------------------
 void main(void)
@@ -158,30 +91,12 @@ void main(void)
 	
 	//Lorawan task
 	lora_handler_create(LORAWAN_TASK_PRIORITY, contrlEvtGrp);
+
+	createCo2Task();	
 	
-	xTaskCreate(
-	taskMyCo2SensorTask,			/* Function that implements the task. */
-	"MyCo2SensorTask",				/* Text name for the task. */
-	TASK_MY_Co2_TASK_STACK,      /* Stack size in words, not bytes. */
-	(void*)2,						/* Parameter passed into the task. */
-	CO2_TASK_PRIORITY,	/* Priority at which the task is created. */
-	&_taskCo2Handle);			/* Used to pass out the created task's handle. */
+	createLightTask();
 
-	xTaskCreate(
-	taskLightSensorTask,				/* Function that implements the task. */
-	"MyLightSensorTask",					/* Text name for the task. */
-	TASK_MY_LIGHT_TASK_STACK,		/* Stack size in words, not bytes. */
-	(void*)3,						/* Parameter passed into the task. */
-	LIGHT_TASK_PRIORITY,	/* Priority at which the task is created. */
-	&_taskLightHandle);				/* Used to pass out the created task's handle. */
-
-	xTaskCreate(
-	taskMyHumiditySensorTask,				/* Function that implements the task. */
-	"MyHumiditySensorTask",					/* Text name for the task. */
-	TASK_MY_HUMIDITY_TASK_STACK,		/* Stack size in words, not bytes. */
-	(void*)4,						/* Parameter passed into the task. */
-	HUMIDITY_TASK_PRIORITY,	/* Priority at which the task is created. */
-	&_taskHumidityHandle);				/* Used to pass out the created task's handle. */
+	createTempHumTask();
 
 	// Let the operating system take over :)
 	vTaskStartScheduler();

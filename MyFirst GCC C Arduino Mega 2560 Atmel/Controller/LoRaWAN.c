@@ -10,10 +10,6 @@
 #include <stddef.h>
 #include <iled.h>
 #include "..//Model/shared_variables.h"
-#include "..//Model/Header Files/final_data_bundle.h"
-#include "..//Model/Header Files/temp_hum_data.h"
-#include "..//Model/Header Files/light_data.h"
-#include "..//Model/Header Files/co2_data.h"
 
 // Credentials for OTA join (From Ib)
 #define LORA_appEUI "1990c988b325074e"
@@ -123,11 +119,13 @@ void lora_handler_task( void* pvParameters )
 
 	_uplink_payload.len = 8;
 	_uplink_payload.port_no = 2;
+	
+	//For timing next measurement initialization.
+	xTimeOnEntering = xTaskGetTickCount();
 
 	for(;;)
 	{
-		//For timing next measurement initialization.
-		xTimeOnEntering = xTaskGetTickCount();
+		
 		xEventGroupSetBits(contrlEvtGrp, 0b00000111);
 		puts("Controller gave sensor signal semaphores");
 
@@ -159,6 +157,10 @@ void lora_handler_task( void* pvParameters )
 		printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(		lora_driver_sent_upload_message(false, &_uplink_payload)));
 
 		puts("Controller sleeps - Delay until next measurement");
-		vTaskDelayUntil(&xTimeOnEntering, 5000/portTICK_PERIOD_MS);
+		
+		/*Note that conversion from ticks to milliseconds is of by about ~ 2/60. 2 seconds to much for each minute.
+		Error margin tested to be proportional delay: Measurement point: 60 seconds specified -> 62 delay, 150 seconds specified -> 155 seconds delay.*/
+		TickType_t measurementsInterval = 150000/portTICK_PERIOD_MS;
+		vTaskDelayUntil(&xTimeOnEntering, measurementsInterval);
 	}
 }

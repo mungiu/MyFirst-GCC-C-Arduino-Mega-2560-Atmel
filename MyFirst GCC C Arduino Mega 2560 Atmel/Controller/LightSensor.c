@@ -12,13 +12,42 @@
 
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
+//light sensor
+#include <tsl2591.h>
+
 //---Model---//
-#include "..//Model/Header Files/light_data.h"
 #include "..//Model/shared_variables.h"
 plight_data data_light;
 
-//light sensor
-#include <tsl2591.h>
+TaskHandle_t _taskLightHandle = NULL;
+
+/*Doxygen: Light sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
+\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
+void taskLightSensorTask(void* pvParameters)
+{
+	// Remove compiler warnings.
+	(void)pvParameters;
+
+	for (;;)
+	{
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000010, pdTRUE, pdTRUE, portMAX_DELAY);
+		vTaskDelay(700/portTICK_PERIOD_MS);
+		getLightSensorMeasurement();
+		xEventGroupSetBits(contrlEvtGrp, 0b00100000);
+	}
+}
+
+/*Task initialization*/
+void createLightTask()
+{
+	xTaskCreate(
+	taskLightSensorTask,				/* Function that implements the task. */
+	"MyLightSensorTask",					/* Text name for the task. */
+	TASK_MY_LIGHT_TASK_STACK,		/* Stack size in words, not bytes. */
+	(void*)3,						/* Parameter passed into the task. */
+	LIGHT_TASK_PRIORITY,	/* Priority at which the task is created. */
+	&_taskLightHandle);				/* Used to pass out the created task's handle. */
+}
 
 //Functions and variables must be declared before use for this C compiler to see them
 void tsl2591Callback(tsl2591ReturnCode_t rc);

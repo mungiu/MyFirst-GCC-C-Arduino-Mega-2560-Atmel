@@ -68,7 +68,6 @@ bool get_is_corrupt_data(plight_data light_data);
  */
 void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux);
 
-
 /**
  * \ingroup light_data_class
  * \brief Retrieves and returns a _infraredRaw value stored in a light data struct
@@ -92,5 +91,4 @@ uint16_t get_infraredRaw(plight_data infraredRaw);
 void destory_light_data(plight_data light_data);
 
 void print_light_data(plight_data light_data);
-uint16_t get_visibleRaw(plight_data visibleRaw);
-uint16_t get_fullRaw(plight_data fullRaw);
+

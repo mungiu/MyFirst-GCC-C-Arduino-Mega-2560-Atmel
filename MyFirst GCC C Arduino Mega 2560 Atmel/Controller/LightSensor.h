@@ -19,6 +19,7 @@
  */
 
 void getLightSensorMeasurement();
+<<<<<<< HEAD
 
 /**
  * \ingroup lightsensor_controller
@@ -27,6 +28,10 @@ void getLightSensorMeasurement();
  * \param[in] rc return code
  */
 void tsl2591Callback(tsl2591ReturnCode_t rc);
+=======
+void tsl2591Callback(tsl2591ReturnCode_t rc/*, tsl2591_data lightMeasurement*/);
+void createLightTask();
+>>>>>>> master
 
 
 

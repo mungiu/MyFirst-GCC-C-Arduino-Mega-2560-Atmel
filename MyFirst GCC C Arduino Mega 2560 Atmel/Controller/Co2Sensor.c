@@ -16,15 +16,45 @@
 #include "../FreeRTOSTraceDriver/FreeRTOSTraceDriver.h"
 
 //---Model---//
-#include "..//Model/Header Files/co2_data.h"
 #include "..//Model/shared_variables.h"
 pco2_data data_co2;
 
 //co2 sensor
 #include <mh_z19.h>
 
+/*Task handle*/
+TaskHandle_t _taskCo2Handle = NULL;
+
 uint16_t ppmReturn;
 mh_z19_return_code_t rc;
+
+/*Doxygen: CO2 sensor task method. Takes a measurements from the sensor. Waits for event bit flag to set, then performs a measurement. After measurement method has returned an event bit is set to mark that the method returned. Runs in a continues loop.
+\Variable contrlEvtGrp: shared variable holds the event group to check the event bits*/
+void taskMyCo2SensorTask(void* pvParameters)
+{
+	// Remove compiler warnings.
+	(void)pvParameters;
+
+	for (;;)
+	{
+		xEventGroupWaitBits(contrlEvtGrp, 0b00000001, pdTRUE, pdTRUE, portMAX_DELAY);
+		vTaskDelay(400/portTICK_PERIOD_MS);
+		getCo2SensorMeasurement();
+		xEventGroupSetBits(contrlEvtGrp, 0b00010000);
+	}
+}
+
+void createCo2Task()
+{
+		xTaskCreate(
+		taskMyCo2SensorTask,			/* Function that implements the task. */
+		"MyCo2SensorTask",				/* Text name for the task. */
+		TASK_MY_Co2_TASK_STACK,      /* Stack size in words, not bytes. */
+		(void*)2,						/* Parameter passed into the task. */
+		CO2_TASK_PRIORITY,	/* Priority at which the task is created. */
+		&_taskCo2Handle);			/* Used to pass out the created task's handle. */
+
+}
 
 void my_co2_call_back(uint16_t ppm);
 

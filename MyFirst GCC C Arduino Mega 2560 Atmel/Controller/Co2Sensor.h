@@ -18,6 +18,11 @@
  *
  */
 void getCo2SensorMeasurement();
+<<<<<<< HEAD
+=======
+void my_co2_call_back(uint16_t ppm);
+void createCo2Task();
+>>>>>>> master
 
 /**
  * \ingroup co2_controller
