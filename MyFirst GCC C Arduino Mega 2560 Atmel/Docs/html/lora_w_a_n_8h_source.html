@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PMI Embedded: loraWAN.h Source File</title>
+<title>PMI Embedded: Controller/loraWAN.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b500f500d6f9b315c95ab1cd4a3b5c0d.html">Controller</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">loraWAN.h</div>  </div>
@@ -73,8 +77,9 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;event_groups.h&gt;</span>       </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;lora_driver.h&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keywordtype">void</span> <a class="code" href="group__lorawan__controller.html#ga3672eab0a8107561f932e80e3648a5a3">lora_handler_create</a>( UBaseType_t lora_handler_task_priority, EventGroupHandle_t xCreatedEventGroup );</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keywordtype">void</span> <a class="code" href="group__lorawan__controller.html#ga3672eab0a8107561f932e80e3648a5a3">lora_handler_create</a>( UBaseType_t lora_handler_task_priority, <a class="code" href="struct_event_group_def__t.html">EventGroupHandle_t</a> xCreatedEventGroup );</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astruct_event_group_def__t_html"><div class="ttname"><a href="struct_event_group_def__t.html">EventGroupDef_t</a></div><div class="ttdef"><b>Definition:</b> event_groups.c:63</div></div>
 <div class="ttc" id="agroup__lorawan__controller_html_ga3672eab0a8107561f932e80e3648a5a3"><div class="ttname"><a href="group__lorawan__controller.html#ga3672eab0a8107561f932e80e3648a5a3">lora_handler_create</a></div><div class="ttdeci">void lora_handler_create(UBaseType_t lora_handler_task_priority, EventGroupHandle_t xCreatedEventGroup)</div><div class="ttdoc">A method responsible for creating a LoRaWAN Handler Task.</div><div class="ttdef"><b>Definition:</b> LoRaWAN.c:24</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
