@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PMI Embedded: light_data.h File Reference</title>
+<title>PMI Embedded: Model/Header Files/light_data.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,6 +59,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_312950da3f243a51cc00f4a947545131.html">Model</a></li><li class="navelem"><a class="el" href="dir_89a45ab204599ad025b07740910a1337.html">Header Files</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -76,31 +80,31 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ac2c1b1c6617454c488f3dae12d360c1f"><td class="memItemLeft" align="right" valign="top"><a id="ac2c1b1c6617454c488f3dae12d360c1f"></a>
-typedef struct light_data_t *&#160;</td><td class="memItemRight" valign="bottom"><b>plight_data</b></td></tr>
+typedef struct <a class="el" href="structlight__data__t.html">light_data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>plight_data</b></td></tr>
 <tr class="separator:ac2c1b1c6617454c488f3dae12d360c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gabe9545746594605fa8c05ad825632723"><td class="memItemLeft" align="right" valign="top">plight_data&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a> (uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)</td></tr>
+<tr class="memitem:gabe9545746594605fa8c05ad825632723"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlight__data__t.html">plight_data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a> (uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)</td></tr>
 <tr class="memdesc:gabe9545746594605fa8c05ad825632723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initializes a Light data struct (type)  <a href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">More...</a><br /></td></tr>
 <tr class="separator:gabe9545746594605fa8c05ad825632723"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga58f67f0d76558951e44dd3bedcfddd00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a> (plight_data light_data, bool bool_corrupt_data)</td></tr>
+<tr class="memitem:ga58f67f0d76558951e44dd3bedcfddd00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a> (<a class="el" href="structlight__data__t.html">plight_data</a> light_data, bool bool_corrupt_data)</td></tr>
 <tr class="memdesc:ga58f67f0d76558951e44dd3bedcfddd00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets values in a light data struct (type)  <a href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">More...</a><br /></td></tr>
 <tr class="separator:ga58f67f0d76558951e44dd3bedcfddd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf107d47ca197bccb242019a1e6c34c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a> (plight_data light_data)</td></tr>
+<tr class="memitem:gadf107d47ca197bccb242019a1e6c34c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a> (<a class="el" href="structlight__data__t.html">plight_data</a> light_data)</td></tr>
 <tr class="memdesc:gadf107d47ca197bccb242019a1e6c34c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves and returns the is_corrupted boolean value stored in a light data struct.  <a href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">More...</a><br /></td></tr>
 <tr class="separator:gadf107d47ca197bccb242019a1e6c34c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf269cb9d09fb5d5303acb3952953c1e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a> (plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux)</td></tr>
+<tr class="memitem:gaf269cb9d09fb5d5303acb3952953c1e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a> (<a class="el" href="structlight__data__t.html">plight_data</a> light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux)</td></tr>
 <tr class="memdesc:gaf269cb9d09fb5d5303acb3952953c1e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets values in a light data struct (type)  <a href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">More...</a><br /></td></tr>
 <tr class="separator:gaf269cb9d09fb5d5303acb3952953c1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4918827daf004a73c7b9be5ae9e2d32"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a> (plight_data infraredRaw)</td></tr>
+<tr class="memitem:gae4918827daf004a73c7b9be5ae9e2d32"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a> (<a class="el" href="structlight__data__t.html">plight_data</a> infraredRaw)</td></tr>
 <tr class="memdesc:gae4918827daf004a73c7b9be5ae9e2d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves and returns a _infraredRaw value stored in a light data struct.  <a href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">More...</a><br /></td></tr>
 <tr class="separator:gae4918827daf004a73c7b9be5ae9e2d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4aa7c942c1f4314edf5bc55d185e9f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a> (plight_data light_data)</td></tr>
+<tr class="memitem:ga4aa7c942c1f4314edf5bc55d185e9f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a> (<a class="el" href="structlight__data__t.html">plight_data</a> light_data)</td></tr>
 <tr class="memdesc:ga4aa7c942c1f4314edf5bc55d185e9f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a light data struct and frees up it's memory.  <a href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">More...</a><br /></td></tr>
 <tr class="separator:ga4aa7c942c1f4314edf5bc55d185e9f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e62122eaa1ce53e14c465eb2c0a7f87"><td class="memItemLeft" align="right" valign="top"><a id="a6e62122eaa1ce53e14c465eb2c0a7f87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_light_data</b> (plight_data light_data)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print_light_data</b> (<a class="el" href="structlight__data__t.html">plight_data</a> light_data)</td></tr>
 <tr class="separator:a6e62122eaa1ce53e14c465eb2c0a7f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

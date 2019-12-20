@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PMI Embedded: light_data.h Source File</title>
+<title>PMI Embedded: Model/Header Files/light_data.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_312950da3f243a51cc00f4a947545131.html">Model</a></li><li class="navelem"><a class="el" href="dir_89a45ab204599ad025b07740910a1337.html">Header Files</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">light_data.h</div>  </div>
@@ -70,27 +74,28 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>light_data_t* plight_data;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlight__data__t.html">light_data_t</a>* <a class="code" href="structlight__data__t.html">plight_data</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;plight_data <a class="code" href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a>(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, <span class="keywordtype">float</span> _lux, <span class="keywordtype">bool</span> corrupt_data);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="structlight__data__t.html">plight_data</a> <a class="code" href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a>(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, <span class="keywordtype">float</span> _lux, <span class="keywordtype">bool</span> corrupt_data);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a>(plight_data light_data, <span class="keywordtype">bool</span> bool_corrupt_data);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a>(<a class="code" href="structlight__data__t.html">plight_data</a> light_data, <span class="keywordtype">bool</span> bool_corrupt_data);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a>(plight_data light_data);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a>(<a class="code" href="structlight__data__t.html">plight_data</a> light_data);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a>(plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, <span class="keywordtype">float</span> _lux);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a>(<a class="code" href="structlight__data__t.html">plight_data</a> light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, <span class="keywordtype">float</span> _lux);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;uint16_t <a class="code" href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a>(plight_data infraredRaw);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;uint16_t <a class="code" href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a>(<a class="code" href="structlight__data__t.html">plight_data</a> infraredRaw);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a>(plight_data light_data);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">void</span> print_light_data(plight_data light_data);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a>(<a class="code" href="structlight__data__t.html">plight_data</a> light_data);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">void</span> print_light_data(<a class="code" href="structlight__data__t.html">plight_data</a> light_data);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="agroup__light__data__class_html_ga4aa7c942c1f4314edf5bc55d185e9f9d"><div class="ttname"><a href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a></div><div class="ttdeci">void destory_light_data(plight_data light_data)</div><div class="ttdoc">Destroys a light data struct and frees up it's memory.</div></div>
-<div class="ttc" id="agroup__light__data__class_html_gabe9545746594605fa8c05ad825632723"><div class="ttname"><a href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a></div><div class="ttdeci">plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)</div><div class="ttdoc">Creates and initializes a Light data struct (type)</div></div>
-<div class="ttc" id="agroup__light__data__class_html_gae4918827daf004a73c7b9be5ae9e2d32"><div class="ttname"><a href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a></div><div class="ttdeci">uint16_t get_infraredRaw(plight_data infraredRaw)</div><div class="ttdoc">Retrieves and returns a _infraredRaw value stored in a light data struct.</div></div>
-<div class="ttc" id="agroup__light__data__class_html_gaf269cb9d09fb5d5303acb3952953c1e8"><div class="ttname"><a href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a></div><div class="ttdeci">void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux)</div><div class="ttdoc">Sets values in a light data struct (type)</div></div>
-<div class="ttc" id="agroup__light__data__class_html_ga58f67f0d76558951e44dd3bedcfddd00"><div class="ttname"><a href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a></div><div class="ttdeci">void set_is_corrupt_data(plight_data light_data, bool bool_corrupt_data)</div><div class="ttdoc">Sets values in a light data struct (type)</div></div>
-<div class="ttc" id="agroup__light__data__class_html_gadf107d47ca197bccb242019a1e6c34c5"><div class="ttname"><a href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a></div><div class="ttdeci">bool get_is_corrupt_data(plight_data light_data)</div><div class="ttdoc">Retrieves and returns the is_corrupted boolean value stored in a light data struct.</div></div>
+<div class="ttc" id="agroup__light__data__class_html_ga4aa7c942c1f4314edf5bc55d185e9f9d"><div class="ttname"><a href="group__light__data__class.html#ga4aa7c942c1f4314edf5bc55d185e9f9d">destory_light_data</a></div><div class="ttdeci">void destory_light_data(plight_data light_data)</div><div class="ttdoc">Destroys a light data struct and frees up it's memory.</div><div class="ttdef"><b>Definition:</b> light_data.c:132</div></div>
+<div class="ttc" id="agroup__light__data__class_html_gabe9545746594605fa8c05ad825632723"><div class="ttname"><a href="group__light__data__class.html#gabe9545746594605fa8c05ad825632723">create_light_data</a></div><div class="ttdeci">plight_data create_light_data(uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux, bool corrupt_data)</div><div class="ttdoc">Creates and initializes a Light data struct (type)</div><div class="ttdef"><b>Definition:</b> light_data.c:20</div></div>
+<div class="ttc" id="agroup__light__data__class_html_gae4918827daf004a73c7b9be5ae9e2d32"><div class="ttname"><a href="group__light__data__class.html#gae4918827daf004a73c7b9be5ae9e2d32">get_infraredRaw</a></div><div class="ttdeci">uint16_t get_infraredRaw(plight_data infraredRaw)</div><div class="ttdoc">Retrieves and returns a _infraredRaw value stored in a light data struct.</div><div class="ttdef"><b>Definition:</b> light_data.c:111</div></div>
+<div class="ttc" id="agroup__light__data__class_html_gaf269cb9d09fb5d5303acb3952953c1e8"><div class="ttname"><a href="group__light__data__class.html#gaf269cb9d09fb5d5303acb3952953c1e8">set_light_data</a></div><div class="ttdeci">void set_light_data(plight_data light_data, uint16_t _fullRaw, uint16_t _visibleRaw, uint16_t _infraredRaw, float _lux)</div><div class="ttdoc">Sets values in a light data struct (type)</div><div class="ttdef"><b>Definition:</b> light_data.c:73</div></div>
+<div class="ttc" id="agroup__light__data__class_html_ga58f67f0d76558951e44dd3bedcfddd00"><div class="ttname"><a href="group__light__data__class.html#ga58f67f0d76558951e44dd3bedcfddd00">set_is_corrupt_data</a></div><div class="ttdeci">void set_is_corrupt_data(plight_data light_data, bool bool_corrupt_data)</div><div class="ttdoc">Sets values in a light data struct (type)</div><div class="ttdef"><b>Definition:</b> light_data.c:45</div></div>
+<div class="ttc" id="agroup__light__data__class_html_gadf107d47ca197bccb242019a1e6c34c5"><div class="ttname"><a href="group__light__data__class.html#gadf107d47ca197bccb242019a1e6c34c5">get_is_corrupt_data</a></div><div class="ttdeci">bool get_is_corrupt_data(plight_data light_data)</div><div class="ttdoc">Retrieves and returns the is_corrupted boolean value stored in a light data struct.</div><div class="ttdef"><b>Definition:</b> light_data.c:58</div></div>
+<div class="ttc" id="astructlight__data__t_html"><div class="ttname"><a href="structlight__data__t.html">light_data_t</a></div><div class="ttdef"><b>Definition:</b> light_data.c:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

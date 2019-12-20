@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PMI Embedded: temp_hum_data.h Source File</title>
+<title>PMI Embedded: Model/Header Files/temp_hum_data.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_312950da3f243a51cc00f4a947545131.html">Model</a></li><li class="navelem"><a class="el" href="dir_89a45ab204599ad025b07740910a1337.html">Header Files</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">temp_hum_data.h</div>  </div>
@@ -70,33 +74,34 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>temp_hum_data_t* ptemp_hum_data;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structtemp__hum__data__t.html">temp_hum_data_t</a>* <a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;ptemp_hum_data <a class="code" href="group__temp__hum__data.html#ga058ff28f7185fca3a677db12cdc92de3">create_temp_hum_data</a>(uint16_t temp_data_value, uint16_t hum_data_value, <span class="keywordtype">bool</span> is_corrupt_data);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> <a class="code" href="group__temp__hum__data.html#ga058ff28f7185fca3a677db12cdc92de3">create_temp_hum_data</a>(uint16_t temp_data_value, uint16_t hum_data_value, <span class="keywordtype">bool</span> is_corrupt_data);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga8a05fef3c67957c4f3b5ef9e5abd3c80">set_is_corrupt_data_th</a>(ptemp_hum_data temp_hum_data, <span class="keywordtype">bool</span> is_corrupt_data);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga8a05fef3c67957c4f3b5ef9e5abd3c80">set_is_corrupt_data_th</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data, <span class="keywordtype">bool</span> is_corrupt_data);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__temp__hum__data.html#gac8f114a0f1f484aff7eef4e330d3351d">get_is_corrupt_data_th</a>(ptemp_hum_data bool_currupt_data);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__temp__hum__data.html#gac8f114a0f1f484aff7eef4e330d3351d">get_is_corrupt_data_th</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> bool_currupt_data);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga90cc2bbc7f5aa885f8adfc5b8051c97b">set_hum_data</a>(ptemp_hum_data temp_hum_data, uint16_t hum_data_value);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga90cc2bbc7f5aa885f8adfc5b8051c97b">set_hum_data</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data, uint16_t hum_data_value);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;uint16_t <a class="code" href="group__temp__hum__data.html#ga2bf839d513a11fbaad232215c6426d9b">get_hum_data</a>(ptemp_hum_data temp_hum_data);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;uint16_t <a class="code" href="group__temp__hum__data.html#ga2bf839d513a11fbaad232215c6426d9b">get_hum_data</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#gab2a69b77bd3910c98cf7fd9e317677f1">set_temp_data</a>(ptemp_hum_data temp_hum_data, uint16_t temp_data_value);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#gab2a69b77bd3910c98cf7fd9e317677f1">set_temp_data</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data, uint16_t temp_data_value);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;uint16_t <a class="code" href="group__temp__hum__data.html#gaf77ea7fcb7aeaacec861d08e70e25dd6">get_temp_data</a>(ptemp_hum_data temp_hum_data);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;uint16_t <a class="code" href="group__temp__hum__data.html#gaf77ea7fcb7aeaacec861d08e70e25dd6">get_temp_data</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga09267ff8594514d3abf17ed54e02fc54">destroy_temp_hum_data</a>(ptemp_hum_data temp_hum_data);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span> print_temp_hum_data(ptemp_hum_data temp_hum_data);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__temp__hum__data.html#ga09267ff8594514d3abf17ed54e02fc54">destroy_temp_hum_data</a>(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span> print_temp_hum_data(<a class="code" href="structtemp__hum__data__t.html">ptemp_hum_data</a> temp_hum_data);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="agroup__temp__hum__data_html_ga09267ff8594514d3abf17ed54e02fc54"><div class="ttname"><a href="group__temp__hum__data.html#ga09267ff8594514d3abf17ed54e02fc54">destroy_temp_hum_data</a></div><div class="ttdeci">void destroy_temp_hum_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Destroys a temp_hum data struct and frees up it's memory.</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_gab2a69b77bd3910c98cf7fd9e317677f1"><div class="ttname"><a href="group__temp__hum__data.html#gab2a69b77bd3910c98cf7fd9e317677f1">set_temp_data</a></div><div class="ttdeci">void set_temp_data(ptemp_hum_data temp_hum_data, uint16_t temp_data_value)</div><div class="ttdoc">Sets the temp_data_value value in a temp_hum data struct (type)</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_ga8a05fef3c67957c4f3b5ef9e5abd3c80"><div class="ttname"><a href="group__temp__hum__data.html#ga8a05fef3c67957c4f3b5ef9e5abd3c80">set_is_corrupt_data_th</a></div><div class="ttdeci">void set_is_corrupt_data_th(ptemp_hum_data temp_hum_data, bool is_corrupt_data)</div><div class="ttdoc">Sets is_corrupt_data value in a temp_hum data struct (type)</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_gaf77ea7fcb7aeaacec861d08e70e25dd6"><div class="ttname"><a href="group__temp__hum__data.html#gaf77ea7fcb7aeaacec861d08e70e25dd6">get_temp_data</a></div><div class="ttdeci">uint16_t get_temp_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Retrieves and returns the temp_data_value value stored in a temp_hum data struct.</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_ga058ff28f7185fca3a677db12cdc92de3"><div class="ttname"><a href="group__temp__hum__data.html#ga058ff28f7185fca3a677db12cdc92de3">create_temp_hum_data</a></div><div class="ttdeci">ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value, bool is_corrupt_data)</div><div class="ttdoc">Creates and initializes a temp_hum data struct (type)</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_ga90cc2bbc7f5aa885f8adfc5b8051c97b"><div class="ttname"><a href="group__temp__hum__data.html#ga90cc2bbc7f5aa885f8adfc5b8051c97b">set_hum_data</a></div><div class="ttdeci">void set_hum_data(ptemp_hum_data temp_hum_data, uint16_t hum_data_value)</div><div class="ttdoc">Sets the hum_data_value value in a temp_hum data struct (type)</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_gac8f114a0f1f484aff7eef4e330d3351d"><div class="ttname"><a href="group__temp__hum__data.html#gac8f114a0f1f484aff7eef4e330d3351d">get_is_corrupt_data_th</a></div><div class="ttdeci">bool get_is_corrupt_data_th(ptemp_hum_data bool_currupt_data)</div><div class="ttdoc">Retrieves and returns the is_corrupted boolean value stored in a temp_hum data struct.</div></div>
-<div class="ttc" id="agroup__temp__hum__data_html_ga2bf839d513a11fbaad232215c6426d9b"><div class="ttname"><a href="group__temp__hum__data.html#ga2bf839d513a11fbaad232215c6426d9b">get_hum_data</a></div><div class="ttdeci">uint16_t get_hum_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Retrieves and returns the hum_data_value value stored in a temp_hum data struct.</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_ga09267ff8594514d3abf17ed54e02fc54"><div class="ttname"><a href="group__temp__hum__data.html#ga09267ff8594514d3abf17ed54e02fc54">destroy_temp_hum_data</a></div><div class="ttdeci">void destroy_temp_hum_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Destroys a temp_hum data struct and frees up it's memory.</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:98</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_gab2a69b77bd3910c98cf7fd9e317677f1"><div class="ttname"><a href="group__temp__hum__data.html#gab2a69b77bd3910c98cf7fd9e317677f1">set_temp_data</a></div><div class="ttdeci">void set_temp_data(ptemp_hum_data temp_hum_data, uint16_t temp_data_value)</div><div class="ttdoc">Sets the temp_data_value value in a temp_hum data struct (type)</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:72</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_ga8a05fef3c67957c4f3b5ef9e5abd3c80"><div class="ttname"><a href="group__temp__hum__data.html#ga8a05fef3c67957c4f3b5ef9e5abd3c80">set_is_corrupt_data_th</a></div><div class="ttdeci">void set_is_corrupt_data_th(ptemp_hum_data temp_hum_data, bool is_corrupt_data)</div><div class="ttdoc">Sets is_corrupt_data value in a temp_hum data struct (type)</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:34</div></div>
+<div class="ttc" id="astructtemp__hum__data__t_html"><div class="ttname"><a href="structtemp__hum__data__t.html">temp_hum_data_t</a></div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:9</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_gaf77ea7fcb7aeaacec861d08e70e25dd6"><div class="ttname"><a href="group__temp__hum__data.html#gaf77ea7fcb7aeaacec861d08e70e25dd6">get_temp_data</a></div><div class="ttdeci">uint16_t get_temp_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Retrieves and returns the temp_data_value value stored in a temp_hum data struct.</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:79</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_ga058ff28f7185fca3a677db12cdc92de3"><div class="ttname"><a href="group__temp__hum__data.html#ga058ff28f7185fca3a677db12cdc92de3">create_temp_hum_data</a></div><div class="ttdeci">ptemp_hum_data create_temp_hum_data(uint16_t temp_data_value, uint16_t hum_data_value, bool is_corrupt_data)</div><div class="ttdoc">Creates and initializes a temp_hum data struct (type)</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:17</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_ga90cc2bbc7f5aa885f8adfc5b8051c97b"><div class="ttname"><a href="group__temp__hum__data.html#ga90cc2bbc7f5aa885f8adfc5b8051c97b">set_hum_data</a></div><div class="ttdeci">void set_hum_data(ptemp_hum_data temp_hum_data, uint16_t hum_data_value)</div><div class="ttdoc">Sets the hum_data_value value in a temp_hum data struct (type)</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:56</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_gac8f114a0f1f484aff7eef4e330d3351d"><div class="ttname"><a href="group__temp__hum__data.html#gac8f114a0f1f484aff7eef4e330d3351d">get_is_corrupt_data_th</a></div><div class="ttdeci">bool get_is_corrupt_data_th(ptemp_hum_data bool_currupt_data)</div><div class="ttdoc">Retrieves and returns the is_corrupted boolean value stored in a temp_hum data struct.</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:44</div></div>
+<div class="ttc" id="agroup__temp__hum__data_html_ga2bf839d513a11fbaad232215c6426d9b"><div class="ttname"><a href="group__temp__hum__data.html#ga2bf839d513a11fbaad232215c6426d9b">get_hum_data</a></div><div class="ttdeci">uint16_t get_hum_data(ptemp_hum_data temp_hum_data)</div><div class="ttdoc">Retrieves and returns the hum_data_value value stored in a temp_hum data struct.</div><div class="ttdef"><b>Definition:</b> temp_hum_data.c:63</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
